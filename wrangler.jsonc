@@ -1,6 +1,7 @@
-// Cloudflare Workers (static assets) — deploy with: npm run build && npx wrangler deploy
+// Cloudflare Workers (static assets). "name" must match your existing Worker so it gets replaced.
+// Deploy: npm run build && npx wrangler deploy
 {
-  "name": "pinoct",
+  "name": "jolly-star-4694",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",
