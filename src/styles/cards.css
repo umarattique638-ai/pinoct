@@ -1,0 +1,43 @@
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px;
+  transition: transform .3s, box-shadow .3s, border-color .3s; position: relative; overflow: hidden;
+}
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: #f4c3d6; }
+.icon-box { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: var(--bg-2); color: var(--pink); margin-bottom: 22px; transition: background .3s, color .3s, transform .3s; }
+.card:hover .icon-box { background: var(--pink); color: #fff; transform: rotate(-6deg); }
+.icon-box svg { width: 26px; height: 26px; }
+.card h3 { font-size: 23px; font-weight: 700; }
+.card p { color: var(--muted); margin: 12px 0 0; font-size: 15.5px; }
+.card .more { display: inline-flex; gap: 6px; align-items: center; margin-top: 20px; font-weight: 700; color: var(--pink); font-size: 14.5px; }
+.card .more svg { width: 16px; transition: transform .2s; }
+.card:hover .more svg { transform: translateX(4px); }
+
+
+@media (max-width: 1080px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+@media (max-width: 760px) {
+  .grid-3, .risk-grid { grid-template-columns: 1fr; }
+}
+
+
+@media (max-width: 520px) {
+  .grid-4, .timeline { grid-template-columns: 1fr; }
+}
+.feature-card { display: flex; flex-direction: column; height: 100%; }
+.feature-card .more { margin-top: auto; padding-top: 20px; }
+.grid-4 .feature-card h3 { font-size: 20px; }
+.card-title-gap { margin-top: 14px; font-size: 21px !important; }
+
+/* Numbered step row (reused on Screening & About) */
+.steps-row { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: s; }
+.step-item { position: relative; padding: 28px; border-radius: var(--radius); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); }
+.step-num { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 20px; background: var(--pink); color: #fff; box-shadow: var(--shadow-pink); }
+.step-item h3 { font-size: 22px; margin-top: 20px; color: #fff; }
+.step-item p { color: #d9bccb; font-size: 15px; margin: 10px 0 0; }
+@media (max-width: 1080px) { .steps-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .steps-row { grid-template-columns: 1fr; } }

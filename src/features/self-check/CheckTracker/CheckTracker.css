@@ -1,0 +1,23 @@
+.tool { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.tool .card:hover { transform: none; }
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 16px; }
+.cal div { height: 40px; border-radius: 10px; display: grid; place-items: center; font-size: 13px; font-weight: 600; color: var(--muted); background: #fffafc; border: 1px solid var(--line); }
+.cal div.h { height: 24px; background: none; border: 0; font-size: 11px; text-transform: uppercase; }
+.cal div.done { background: var(--pink); color: #fff; border-color: var(--pink); }
+.cal div.today { outline: 2px solid var(--ink); outline-offset: 1px; }
+.streak { display: flex; gap: 14px; margin-top: 18px; }
+.streak > div { flex: 1; padding: 16px; border-radius: 16px; border: 1px solid var(--line); background: #fff; }
+.streak b { font-family: var(--display); font-size: 30px; display: block; line-height: 1; }
+.streak span { font-size: 13px; color: var(--muted); }
+.tool-card { height: 100%; }
+.tool-card > p { margin-top: 6px; }
+.field-label { font-weight: 700; font-size: 14px; }
+.age-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; }
+.age-row .chip { height: 48px; }
+.result-icon { vertical-align: -3px; color: var(--pink); }
+.result-btn { margin-top: 14px; }
+.result-solid { border-style: solid; background: #fff; }
+.cal div.blank { visibility: hidden; }
+.tracker-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.privacy-note { font-size: 13px; }
+@media (max-width: 1080px) { .tool { grid-template-columns: 1fr; } }

@@ -1,0 +1,21 @@
+.cta {
+  border-radius: 36px; padding: 80px 40px; text-align: center; color: #fff; position: relative; overflow: hidden;
+  background: radial-gradient(circle at 20% 0%, #ff74a8 0%, transparent 45%), radial-gradient(circle at 90% 100%, #7a1c58 0%, transparent 50%), linear-gradient(135deg, #e6337a, #a8104f);
+}
+.cta h2 { font-size: clamp(36px, 5.4vw, 64px); font-weight: 800; }
+.cta h2 .serif { display: block; color: #ffe1ec; }
+.cta p { font-size: 18px; color: #ffe1ec; max-width: 580px; margin: 20px auto 0; }
+.cta .btn-primary { background: #fff; color: var(--pink); box-shadow: 0 18px 40px -12px rgba(0,0,0,.35); }
+.cta .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.4); }
+.cta .checks { justify-content: center; color: #ffe1ec; }
+.cta .checks svg { color: #fff; }
+.ribbon-bg { position: absolute; opacity: .09; width: 420px; right: -80px; top: -60px; transform: rotate(18deg); }
+
+
+@media (max-width: 520px) {
+  .cta { padding: 60px 22px; border-radius: 26px; }
+}
+.cta-section { padding: 30px 0 0; }
+.cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; position: relative; }
+.cta .ribbon-bg { opacity: .12; filter: none; }
+.cta .ribbon-bg rect { fill: transparent; }

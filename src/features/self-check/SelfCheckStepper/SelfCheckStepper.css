@@ -1,0 +1,35 @@
+.exam { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: stretch; }
+.exam-steps { display: grid; gap: 10px; align-content: start; }
+.exam-step {
+  display: flex; gap: 16px; align-items: center; text-align: left; padding: 18px 20px; border-radius: 18px;
+  border: 1px solid var(--line); background: #fff; transition: all .25s; width: 100%;
+}
+.exam-step .n { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-family: var(--display); font-weight: 800; background: var(--bg-2); color: var(--pink); flex: none; transition: all .25s; }
+.exam-step b { display: block; font-size: 16.5px; font-family: var(--display); }
+.exam-step span { font-size: 13.5px; color: var(--muted); }
+.exam-step.active { border-color: var(--pink); box-shadow: 0 10px 30px -14px rgba(230,51,122,.6); }
+.exam-step.active .n { background: var(--pink); color: #fff; }
+.exam-panel { background: var(--plum); color: #fbe7f0; border-radius: 28px; padding: 40px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.exam-panel::before { content: ""; position: absolute; width: 380px; height: 380px; right: -120px; top: -120px; border-radius: 50%; background: radial-gradient(circle, rgba(255,116,168,.45), transparent 65%); }
+.exam-panel .step-no { font-family: var(--display); font-size: 14px; font-weight: 700; color: var(--pink-2); letter-spacing: .1em; text-transform: uppercase; }
+.exam-panel h3 { font-size: clamp(30px, 3.4vw, 42px); margin-top: 10px; color: #fff; }
+.exam-panel p { font-size: 17px; color: #e5c9d6; margin: 16px 0 0; position: relative; }
+.exam-illus { margin: 26px 0; display: grid; place-items: center; min-height: 190px; position: relative; }
+.tip { margin-top: auto; display: flex; gap: 12px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); padding: 16px 18px; border-radius: 16px; font-size: 14.5px; color: #fbe7f0; position: relative; }
+.tip svg { width: 20px; flex: none; color: var(--pink-2); }
+.exam-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; position: relative; }
+.exam-nav .bars { display: flex; gap: 6px; }
+.exam-nav .bars i { width: 26px; height: 5px; border-radius: 9px; background: rgba(255,255,255,.18); transition: background .3s; }
+.exam-nav .bars i.on { background: var(--pink-2); }
+.round { width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: background .2s; }
+.round:hover { background: rgba(255,255,255,.1); }
+.round:disabled { opacity: .35; cursor: default; }
+.round svg { width: 20px; }
+
+
+@media (max-width: 760px) {
+  .exam-panel { padding: 28px; }
+}
+.exam-body { position: relative; display: flex; flex-direction: column; flex: 1; }
+.exam-arrows { display: flex; gap: 8px; }
+@media (max-width: 1080px) { .exam { grid-template-columns: 1fr; } }

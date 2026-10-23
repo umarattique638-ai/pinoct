@@ -1,0 +1,15 @@
+.faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
+.faq-grid .head { position: sticky; top: 110px; }
+.faq { border-bottom: 1px solid var(--line); }
+.faq button { width: 100%; text-align: left; padding: 24px 0; display: flex; justify-content: space-between; gap: 20px; align-items: center; font-family: var(--display); font-weight: 700; font-size: 19px; }
+.faq .pm { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; flex: none; transition: all .3s; }
+.faq.open .pm { background: var(--pink); color: #fff; border-color: var(--pink); transform: rotate(45deg); }
+.faq .pm svg { width: 18px; }
+.faq .ans { overflow: hidden; }
+.faq .ans p { margin: 0 0 24px; color: var(--muted); font-size: 16px; max-width: 640px; }
+
+
+@media (max-width: 1080px) {
+  .faq-grid .head { position: static; }
+}
+@media (max-width: 1080px) { .faq-grid { grid-template-columns: 1fr; gap: 20px; } .faq-grid .head { position: static; } }

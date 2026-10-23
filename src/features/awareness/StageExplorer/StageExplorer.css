@@ -1,0 +1,26 @@
+.stage-pick { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 22px; }
+.stage-btn { padding: 18px 10px; border-radius: 18px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.04); text-align: center; transition: all .25s; }
+.stage-btn b { font-family: var(--display); font-size: 30px; display: block; line-height: 1; color: #fff; }
+.stage-btn span { font-size: 12.5px; color: #c9a4b8; font-weight: 600; }
+.stage-btn:hover { background: rgba(255,255,255,.08); }
+.stage-btn.on { background: var(--pink); border-color: var(--pink); box-shadow: var(--shadow-pink); }
+.stage-btn.on span { color: #ffe1ec; }
+.stage-card { display: grid; grid-template-columns: 1.3fr .7fr; gap: 0; border-radius: 26px; overflow: hidden; border: 1px solid rgba(255,255,255,.12); }
+.stage-card .l { padding: 36px; background: rgba(255,255,255,.04); }
+.stage-card .l h3 { font-size: 34px; color: #fff; }
+.stage-card .l p { color: #e2c4d2; font-size: 17px; margin: 14px 0 0; }
+.stage-card .r { padding: 36px; background: linear-gradient(160deg, var(--plum-2), #1b0614); display: flex; flex-direction: column; justify-content: center; }
+.stage-card .r small { color: #c9a4b8; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.stage-card .r .big { font-family: var(--display); font-size: 58px; font-weight: 800; color: #fff; letter-spacing: -.04em; line-height: 1.05; margin: 6px 0 14px; }
+.bar { height: 10px; border-radius: 9px; background: rgba(255,255,255,.1); overflow: hidden; }
+.bar > div { height: 100%; background: linear-gradient(90deg, var(--pink), var(--pink-2)); border-radius: 9px; }
+.stage-card .r p { font-size: 13px; color: #b996a9; margin: 12px 0 0; }
+
+
+@media (max-width: 760px) {
+  .stage-pick { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .stage-btn { padding: 12px 4px; }
+  .stage-btn span { display: none; }
+  .stage-card { grid-template-columns: 1fr; }
+}
+.stage-card .l h3 { margin-top: 16px; }

@@ -1,0 +1,11 @@
+/*
+ * Global style entry. Order matters:
+ * tokens → base/reset → typography → shared primitives.
+ * Component-specific styles are co-located next to each component.
+ */
+@import "./tokens.css";
+@import "./base.css";
+@import "./typography.css";
+@import "./cards.css";
+@import "./forms.css";
+@import "./utilities.css";

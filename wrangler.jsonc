@@ -1,0 +1,9 @@
+// Cloudflare Workers (static assets) — deploy with: npm run build && npx wrangler deploy
+{
+  "name": "pinoct",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

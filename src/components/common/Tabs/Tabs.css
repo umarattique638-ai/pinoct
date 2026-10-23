@@ -1,0 +1,4 @@
+.tabs { display: inline-flex; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 5px; gap: 4px; margin-bottom: 30px; position: relative; }
+.tab { position: relative; padding: 11px 22px; border-radius: 999px; font-weight: 700; font-size: 14.5px; color: var(--muted); z-index: 1; }
+.tab.on { color: #fff; }
+.tab-bg { position: absolute; inset: 0; background: var(--pink); border-radius: 999px; z-index: -1; }

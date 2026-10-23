@@ -1,0 +1,7 @@
+.sign { padding: 26px; }
+.sign .icon-box { width: 48px; height: 48px; border-radius: 14px; margin-bottom: 18px; }
+.sign h3 { font-size: 19px; }
+.sign p { font-size: 14.5px; margin-top: 8px; }
+.sign .idx { position: absolute; right: 22px; top: 18px; font-family: var(--display); font-weight: 800; color: var(--line); font-size: 34px; }
+.callout-main { display: flex; gap: 16px; align-items: center; }
+.callout-main .icon-box { margin: 0; background: #fff; }

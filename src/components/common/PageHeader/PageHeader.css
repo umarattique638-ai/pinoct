@@ -1,0 +1,21 @@
+.page-header { position: relative; overflow: hidden; padding: 70px 0 90px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #fff4f8 0%, var(--bg) 100%); }
+.page-header::before {
+  content: ""; position: absolute; width: 700px; height: 700px; right: -200px; top: -320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 116, 168, .35), transparent 62%);
+}
+.ph-grid-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(230, 51, 122, .14) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at 70% 0%, #000 0%, transparent 65%);
+}
+.ph-inner { position: relative; }
+.crumbs { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 22px; }
+.crumbs a:hover { color: var(--pink); }
+.crumbs svg { width: 15px; }
+.crumbs span { color: var(--ink); }
+.page-header h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 800; margin-top: 18px; max-width: 900px; }
+.page-header h1 .serif { color: var(--pink); }
+.page-header .lead { font-size: 19px; }
+.ph-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+@media (max-width: 760px) { .page-header { padding: 46px 0 64px; } }
