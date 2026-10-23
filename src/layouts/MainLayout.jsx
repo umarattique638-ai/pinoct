@@ -1,6 +1,4 @@
-import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { PageLoader } from "@/components/common";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer/Footer";
 import ScrollProgress from "@/components/layout/ScrollProgress/ScrollProgress";
@@ -15,9 +13,7 @@ export default function MainLayout() {
       <ScrollProgress />
       <Navbar />
       <main id="main">
-        <Suspense fallback={<PageLoader />}>
-          <Outlet />
-        </Suspense>
+        <Outlet />
       </main>
       <Footer />
     </>

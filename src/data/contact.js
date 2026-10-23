@@ -1,15 +1,23 @@
 import { SITE } from "@/config/site";
 
-export const contactTopics = [
-  "General question",
-  "Awareness session / event",
-  "Partnership or volunteering",
-  "Feedback on the website",
-  "Media enquiry",
-];
+const waText = encodeURIComponent("Hi Pinoct! I have a question about breast cancer awareness.");
 
 export const contactChannels = [
-  { icon: "Mail", title: "Email us", text: "We usually reply within 2 working days.", value: SITE.email, href: `mailto:${SITE.email}` },
-  { icon: "MapPin", title: "Based in", text: "Running awareness drives across Pakistan.", value: SITE.location },
-  { icon: "Siren", title: "Medical emergency", text: "Pinoct can't give medical advice. In an emergency call:", value: `${SITE.emergency} (Pakistan)`, href: `tel:${SITE.emergency}`, urgent: true },
+  {
+    id: "whatsapp",
+    title: "WhatsApp",
+    text: "Chat with the Pinoct team — the fastest way to reach us.",
+    value: SITE.whatsappDisplay,
+    href: `https://wa.me/${SITE.whatsapp}?text=${waText}`,
+    cta: "Chat on WhatsApp",
+    external: true,
+  },
+  {
+    id: "email",
+    title: "Email",
+    text: "For events, partnerships, media and detailed questions.",
+    value: SITE.email,
+    href: `mailto:${SITE.email}`,
+    cta: "Send an email",
+  },
 ];

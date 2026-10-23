@@ -5,7 +5,6 @@ export { default as CountUp } from "./CountUp";
 export { default as CtaBanner } from "./CtaBanner/CtaBanner";
 export { default as Logo, LogoMark } from "./Logo/Logo";
 export { default as PageHeader } from "./PageHeader/PageHeader";
-export { default as PageLoader } from "./PageLoader";
 export { default as Reveal } from "./Reveal";
 export { default as Section } from "./Section";
 export { default as SectionHeader, Eyebrow } from "./SectionHeader";

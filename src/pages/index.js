@@ -1,11 +1,10 @@
-import { lazy } from "react";
-
-// Route-level code splitting: each page becomes its own JS chunk.
-export const Home = lazy(() => import("./Home"));
-export const About = lazy(() => import("./About"));
-export const Awareness = lazy(() => import("./Awareness"));
-export const SelfCheck = lazy(() => import("./SelfCheck"));
-export const Screening = lazy(() => import("./Screening"));
-export const Faq = lazy(() => import("./Faq"));
-export const Contact = lazy(() => import("./Contact"));
-export const NotFound = lazy(() => import("./NotFound"));
+// All pages are bundled up-front (the site is small), so navigation is instant —
+// no extra download or loading spinner when switching pages.
+export { default as Home } from "./Home";
+export { default as About } from "./About";
+export { default as Awareness } from "./Awareness";
+export { default as SelfCheck } from "./SelfCheck";
+export { default as Screening } from "./Screening";
+export { default as Faq } from "./Faq";
+export { default as Contact } from "./Contact";
+export { default as NotFound } from "./NotFound";

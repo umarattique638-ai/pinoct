@@ -23,7 +23,7 @@ export default function Home() {
           eyebrow="Why it matters"
           title="Awareness that acts."
           subtitle="Not just a pink ribbon."
-          lead="Breast cancer is the most common cancer among women worldwide. Awareness only matters if it changes what we do — checking, noticing, and getting screened on time."
+          lead="Pinoct exists to spread breast cancer awareness, educate visitors, promote early detection and share trusted information and resources — because awareness only matters if it changes what we do."
         />
         <FeatureCards items={pillars} />
       </Section>

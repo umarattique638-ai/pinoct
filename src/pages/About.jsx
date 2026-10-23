@@ -1,6 +1,8 @@
 import { ArrowRight, Mail } from "lucide-react";
 import { Button, CtaBanner, PageHeader, Reveal, Section, SectionHeader, Seo } from "@/components/common";
-import { CancerTypes, MissionVision, RibbonHistory, Values } from "@/features/about/AboutSections";
+import { CancerTypes, MissionVision, Resources, RibbonHistory, Values } from "@/features/about/AboutSections";
+import FeatureCards from "@/features/home/FeatureCards";
+import { purpose } from "@/data/about";
 import StatsStrip from "@/features/home/StatsStrip/StatsStrip";
 import { PATHS } from "@/routes/paths";
 
@@ -13,7 +15,7 @@ export default function About() {
         eyebrow="About Pinoct"
         title="We turn awareness into"
         accent="action."
-        lead="Pinoct — from pink + October — is a breast cancer awareness initiative. We make the facts simple, the self-check easy and the next step clear, all year round."
+        lead="Pinoct — from pink + October — exists to spread breast cancer awareness, educate visitors, promote early detection, and provide useful information and resources, all year round."
       >
         <Button to={PATHS.AWARENESS} icon={ArrowRight}>Start learning</Button>
         <Button to={PATHS.CONTACT} variant="ghost" iconLeft={Mail}>Get in touch</Button>
@@ -38,6 +40,15 @@ export default function About() {
         </div>
       </Section>
 
+      <Section tone="tint" id="purpose">
+        <SectionHeader
+          eyebrow="Our purpose"
+          title="Four things we're here to do."
+          subtitle="Everything on Pinoct serves one of them."
+        />
+        <FeatureCards items={purpose} columns={4} />
+      </Section>
+
       <StatsStrip />
 
       <Section tone="tint">
@@ -59,6 +70,16 @@ export default function About() {
       <Section>
         <SectionHeader eyebrow="Our values" title="What we stand for." subtitle="The principles behind every page." align="center" />
         <Values />
+      </Section>
+
+      <Section tone="tint" id="resources">
+        <SectionHeader
+          eyebrow="Resources"
+          title="Trusted places to learn more."
+          subtitle="Reliable organisations we rely on."
+          lead="Pinoct is an awareness platform, not a medical provider. For deeper reading, screening services or support, start with these."
+        />
+        <Resources />
       </Section>
 
       <CtaBanner />

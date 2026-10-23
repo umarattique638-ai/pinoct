@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUp, Mail, MapPin } from "lucide-react";
+import { ArrowUp, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Logo } from "@/components/common";
 import { FOOTER_GROUPS, SITE, TRUSTED_SOURCES } from "@/config/site";
 import useScrolled from "@/hooks/useScrolled";
@@ -37,6 +37,7 @@ export default function Footer() {
             <Logo />
             <p>{SITE.description}</p>
             <ul className="foot-contact">
+              <li><MessageCircle /><a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer">{SITE.whatsappDisplay}</a></li>
               <li><Mail /><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
               <li><MapPin />{SITE.location}</li>
             </ul>

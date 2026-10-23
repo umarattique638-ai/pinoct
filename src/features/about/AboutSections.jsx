@@ -1,6 +1,6 @@
-import { BadgeCheck, Eye, Lock, Target, Users, Zap } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, Eye, Lock, Target, Users, Zap } from "lucide-react";
 import { Reveal } from "@/components/common";
-import { cancerTypes, missionVision, ribbonHistory, values } from "@/data/about";
+import { cancerTypes, missionVision, resources, ribbonHistory, values } from "@/data/about";
 import "./About.css";
 
 const ICONS = { Target, Eye, BadgeCheck, Users, Lock, Zap };
@@ -63,6 +63,24 @@ export function Values() {
           </Reveal>
         );
       })}
+    </div>
+  );
+}
+
+export function Resources() {
+  return (
+    <div className="resources">
+      {resources.map((r, i) => (
+        <Reveal key={r.href} i={i % 2}>
+          <a href={r.href} target="_blank" rel="noopener noreferrer" className="card resource-card">
+            <div>
+              <h3>{r.name}</h3>
+              <p>{r.text}</p>
+            </div>
+            <ArrowUpRight className="resource-arrow" aria-hidden="true" />
+          </a>
+        </Reveal>
+      ))}
     </div>
   );
 }

@@ -1,6 +1,10 @@
 # Pinoct — Breast Cancer Awareness
 
-React 19 + Vite + React Router 7 + Framer Motion. Multi-page SPA with route-level code splitting.
+React 19 + Vite + React Router 7 + Framer Motion.
+
+**Purpose:** spread breast cancer awareness, educate visitors, promote early detection, and provide useful information and resources.
+
+All pages are bundled up-front, so switching pages is instant.
 
 ## Quick start
 ```bash
@@ -20,7 +24,7 @@ npm run lint
 | `/self-check` | 5-step guide + reminder/tracker tool |
 | `/screening` | Screening by age, tests, mammogram steps |
 | `/faq` | Searchable, filterable FAQ |
-| `/contact` | Contact form + channels |
+| `/contact` | WhatsApp + email contact cards |
 | `*` | 404 |
 
 ## Folder structure
@@ -37,9 +41,8 @@ src/
 ├─ features/                   domain components: home, about, awareness, self-check, screening, contact
 ├─ data/                       all page content (edit text here)
 ├─ config/site.js              brand name, email, nav & footer links
-├─ hooks/                      useForm, useLocalStorage, useScrolled
-├─ services/contactService.js  contact form submission
-├─ utils/                      cn, date, ics, screening, validators
+├─ hooks/                      useLocalStorage, useScrolled
+├─ utils/                      cn, date, ics, screening
 └─ styles/                     tokens.css (colours/fonts), base, typography, cards, forms, utilities
 ```
 Each component keeps its CSS next to it (e.g. `Hero/Hero.jsx` + `Hero/Hero.css`). Import alias: `@/` → `src/`.
@@ -48,9 +51,13 @@ Each component keeps its CSS next to it (e.g. `Hero/Hero.jsx` + `Hero/Hero.css`)
 1. Update the Google Fonts `<link>` in `index.html`.
 2. Update `--font-sans`, `--font-display`, `--font-serif` in `src/styles/tokens.css`.
 
-## Contact form
-Copy `.env.example` → `.env` and set `VITE_CONTACT_ENDPOINT` to a free Formspree/Web3Forms endpoint.
-Without it, the form opens the visitor's email app pre-filled to `SITE.email` (`src/config/site.js`).
+## Contact details
+Edit `whatsapp` (digits only, e.g. `923001234567`), `whatsappDisplay` and `email` in `src/config/site.js`.
+
+## Build output
+`npm run build` also runs `scripts/spa-routes.mjs`, which writes an HTML file for every route
+(`about.html`, `about/index.html`, …, `404.html`). Direct links and page refreshes therefore work
+on any static host without rewrite rules.
 
 ## Deploy (free)
 **Vercel:** push to GitHub → vercel.com → *Add New Project* → import repo → Deploy (settings come from `vercel.json`).

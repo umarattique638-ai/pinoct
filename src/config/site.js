@@ -10,8 +10,11 @@ export const SITE = Object.freeze({
   url: "https://pinoct.com",
   tagline: "Early detection saves lives.",
   description:
-    "Pinoct is a breast cancer awareness platform — learn the warning signs, the 5-step self-check and when to get screened.",
+    "Pinoct spreads breast cancer awareness — educating visitors, promoting early detection and sharing trusted information and resources.",
   email: "hello@pinoct.com", // TODO: create this mailbox once the domain is purchased
+  // TODO: your WhatsApp number — international format, digits only (e.g. 923001234567)
+  whatsapp: "923000000000",
+  whatsappDisplay: "+92 300 0000000",
   emergency: "1122",
   location: "Lahore, Pakistan",
   social: {

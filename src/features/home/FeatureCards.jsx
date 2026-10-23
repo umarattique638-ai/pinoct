@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, BookOpenText, CalendarCheck, HandHeart, HeartPulse, MessagesSquare, ScanLine, Search } from "lucide-react";
+import { ArrowRight, BookOpenText, CalendarCheck, GraduationCap, HandHeart, HeartPulse, Library, Megaphone, MessagesSquare, ScanLine, Search } from "lucide-react";
 import { Reveal } from "@/components/common";
 import { cn } from "@/utils/cn";
 
-const ICONS = { Search, HandHeart, CalendarCheck, BookOpenText, HeartPulse, ScanLine, MessagesSquare };
+const ICONS = { Search, HandHeart, CalendarCheck, BookOpenText, HeartPulse, ScanLine, MessagesSquare, Megaphone, GraduationCap, Library };
 
 /** Grid of linked icon cards. items: [{ icon, title, text, to, linkText? }] */
 export default function FeatureCards({ items, columns = 3 }) {

@@ -5,7 +5,7 @@ const variants = {
   show: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -13,7 +13,7 @@ const variants = {
 export default function Reveal({ as = "div", i = 0, children, ...rest }) {
   const Component = motion[as];
   return (
-    <Component variants={variants} custom={i} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-60px" }} {...rest}>
+    <Component variants={variants} custom={i} initial="hidden" whileInView="show" viewport={{ once: true, margin: "0px 0px -40px 0px" }} {...rest}>
       {children}
     </Component>
   );

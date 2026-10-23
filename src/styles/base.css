@@ -31,9 +31,6 @@ section { position: relative; }
   html { scroll-behavior: auto; }
 }
 
-.page-loader { min-height: 60vh; display: grid; place-items: center; }
-.page-loader svg { animation: pulse 1.2s ease-in-out infinite; }
-@keyframes pulse { 50% { transform: scale(.85); opacity: .6; } }
 main { min-height: 60vh; }
 .skip-link { position: absolute; left: 16px; top: -60px; z-index: 200; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; font-weight: 700; }
 .skip-link:focus { top: 12px; }
