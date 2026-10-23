@@ -1,8 +1,0 @@
-.risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.risk { padding: 24px; }
-.risk h3 { font-size: 19px; }
-.risk p { font-size: 14.5px; margin-top: 8px; }
-.meter { display: flex; gap: 4px; margin-top: 18px; align-items: center; }
-.meter i { height: 6px; flex: 1; border-radius: 9px; background: var(--bg-2); }
-.meter i.on { background: var(--pink); }
-.meter span { font-size: 12px; font-weight: 700; color: var(--muted); margin-left: 8px; white-space: nowrap; min-width: 76px; }

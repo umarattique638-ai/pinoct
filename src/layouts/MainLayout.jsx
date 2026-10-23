@@ -8,11 +8,16 @@ import ScrollManager from "@/components/layout/ScrollManager";
 export default function MainLayout() {
   return (
     <>
-      <a href="#main" className="skip-link">Skip to content</a>
+      <a
+        href="#main"
+        className="absolute -top-[60px] left-4 z-200 rounded-[10px] bg-ink px-4 py-2.5 font-bold text-white focus:top-3"
+      >
+        Skip to content
+      </a>
       <ScrollManager />
       <ScrollProgress />
       <Navbar />
-      <main id="main">
+      <main id="main" className="min-h-[60vh]">
         <Outlet />
       </main>
       <Footer />

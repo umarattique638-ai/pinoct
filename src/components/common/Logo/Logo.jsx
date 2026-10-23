@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { PATHS } from "@/routes/paths";
 import { SITE } from "@/config/site";
 import { cn } from "@/utils/cn";
-import "./Logo.css";
 
 /** The Pinoct awareness-ribbon mark (standalone, reusable for favicons, decoration, etc.). */
 export function LogoMark({ size = 40, className }) {
@@ -17,7 +16,6 @@ export function LogoMark({ size = 40, className }) {
         </linearGradient>
       </defs>
       <rect width="48" height="48" rx="14" fill={`url(#${id}-bg)`} />
-      {/* ribbon: loop + crossed tails */}
       <path d="M24 9.5c-5.6 0-9 4-9 8.8 0 4.4 3 9.3 5.8 13.6L13 41.5l5.2 1.4 5.8-9.7 5.8 9.7 5.2-1.4-7.8-9.6c2.8-4.3 5.8-9.2 5.8-13.6 0-4.8-3.4-8.8-9-8.8Zm0 5.6c2 0 3.4 1.4 3.4 3.4 0 2.2-1.5 5.6-3.4 8.9-1.9-3.3-3.4-6.7-3.4-8.9 0-2 1.4-3.4 3.4-3.4Z" fill="#fff" />
       <circle cx="37" cy="11" r="3" fill="#fff" opacity=".9" />
     </svg>
@@ -27,10 +25,10 @@ export function LogoMark({ size = 40, className }) {
 /** Full logo: mark + "pinoct" wordmark. Links home by default. */
 export default function Logo({ to = PATHS.HOME, light = false, className }) {
   return (
-    <Link to={to} className={cn("logo", light && "logo-light", className)} aria-label={`${SITE.name} home`}>
-      <LogoMark />
-      <span className="logo-word">
-        pin<span>oct</span>
+    <Link to={to} className={cn("group inline-flex items-center gap-2.5", className)} aria-label={`${SITE.name} home`}>
+      <LogoMark className="drop-shadow-[0_10px_18px_rgba(230,51,122,0.4)] transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-8" />
+      <span className={cn("font-display text-[25px] leading-none font-extrabold tracking-[-0.05em]", light ? "text-white" : "text-ink")}>
+        pin<span className={light ? "text-pink-2" : "text-pink"}>oct</span>
       </span>
     </Link>
   );

@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { Button, CtaBanner, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
+import { AwarenessBanner, Button, CtaBanner, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
+import { BANNERS } from "@/data/banners";
 import SignsGrid from "@/features/awareness/SignsGrid/SignsGrid";
 import RiskFactors from "@/features/awareness/RiskFactors/RiskFactors";
 import StageExplorer from "@/features/awareness/StageExplorer/StageExplorer";
@@ -59,6 +60,8 @@ export default function Awareness() {
         />
         <MythsTable />
       </Section>
+
+      <AwarenessBanner banner={BANNERS.knowYourNormal} className="pt-0 md:pt-0" />
 
       <CtaBanner />
     </>

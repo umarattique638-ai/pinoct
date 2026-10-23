@@ -1,11 +1,130 @@
+@import "tailwindcss";
+
 /*
- * Global style entry. Order matters:
- * tokens → base/reset → typography → shared primitives.
- * Component-specific styles are co-located next to each component.
+ * Pinoct design system (Tailwind CSS v4).
+ * Every colour, font, shadow, radius, breakpoint and animation used in the
+ * site is defined here as a theme token, then used as a utility class
+ * (e.g. bg-pink, text-muted, font-display, shadow-soft, animate-marquee).
+ *
+ * To change the FONT for the whole site: edit --font-sans / --font-display /
+ * --font-serif below AND the Google Fonts <link> in index.html.
  */
-@import "./tokens.css";
-@import "./base.css";
-@import "./typography.css";
-@import "./cards.css";
-@import "./forms.css";
-@import "./utilities.css";
+@theme {
+  /* Colours */
+  --color-bg: #fffafc;
+  --color-bg-2: #fdf0f5;
+  --color-ink: #1f0b19;
+  --color-ink-2: #3a1a30;
+  --color-muted: #74606d;
+  --color-line: #f0dbe5;
+  --color-line-hover: #f4c3d6;
+  --color-pink: #e6337a;
+  --color-pink-dark: #d4206a;
+  --color-pink-deep: #9e1352;
+  --color-pink-2: #ff74a8;
+  --color-pink-3: #ffd3e3;
+  --color-pink-soft: #ffe1ec;
+  --color-plum: #2a0a20;
+  --color-plum-2: #4a1238;
+  --color-mauve: #c9a4b8;
+  --color-mauve-light: #d9bccb;
+  --color-ok: #16a37a;
+  --color-warn: #e08a12;
+  --color-info: #5b5bd6;
+  --color-whatsapp: #16a34a;
+
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  /* Radii & shadows */
+  --radius-card: 22px;
+  --shadow-soft: 0 1px 2px rgba(42, 10, 32, 0.05), 0 12px 40px -12px rgba(42, 10, 32, 0.18);
+  --shadow-pink: 0 18px 50px -14px rgba(230, 51, 122, 0.55);
+  --shadow-pink-sm: 0 10px 30px -14px rgba(230, 51, 122, 0.6);
+  --shadow-dark: 0 18px 40px -12px rgba(0, 0, 0, 0.35);
+  --shadow-mock: 0 50px 100px -40px rgba(42, 10, 32, 0.45), 0 0 0 8px rgba(255, 255, 255, 0.5);
+  --shadow-ring: 0 0 0 4px rgba(230, 51, 122, 0.12);
+
+  /* Breakpoints (mobile-first, mapped to the original design's layout changes) */
+  --breakpoint-sm: 32.5625rem; /* 521px */
+  --breakpoint-md: 47.5625rem; /* 761px */
+  --breakpoint-lg: 60.0625rem; /* 961px */
+  --breakpoint-xl: 67.5625rem; /* 1081px */
+  --breakpoint-2xl: 73.8125rem; /* 1181px */
+
+  /* Animations */
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-drift: drift 18s ease-in-out infinite alternate;
+  --animate-orbit: spin 40s linear infinite;
+  --animate-orbit-reverse: spin 60s linear infinite reverse;
+  --animate-live: live-ping 1.8s infinite;
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes drift {
+    to { transform: translate(40px, 30px) scale(1.08); }
+  }
+  @keyframes live-ping {
+    70% { box-shadow: 0 0 0 7px rgba(22, 163, 122, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(22, 163, 122, 0); }
+  }
+}
+
+/* ---------- Base element styles ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+  }
+  body {
+    @apply bg-bg font-sans text-base leading-[1.6] text-ink antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display leading-[1.05] tracking-[-0.025em];
+  }
+  ::selection {
+    @apply bg-pink text-white;
+  }
+  button {
+    cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+/* ---------- Custom utilities (reusable one-liners) ---------- */
+
+/* Page-width container: 1200px max with 20px gutters (16px on phones). */
+@utility container-page {
+  width: min(1200px, 100% - 32px);
+  margin-inline: auto;
+  @variant sm {
+    width: min(1200px, 100% - 40px);
+  }
+}
+
+/* Italic serif accent used inside headings. */
+@utility font-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Gradient-filled text. */
+@utility text-gradient {
+  background-image: linear-gradient(120deg, var(--color-pink), var(--color-pink-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Faint pink dot grid, faded out with a radial mask. */
+@utility dot-grid {
+  background-image: radial-gradient(rgba(230, 51, 122, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}

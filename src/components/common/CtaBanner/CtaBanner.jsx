@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, Share2 } from "lucide-react";
+import { ArrowRight, Share2 } from "lucide-react";
 import { PATHS } from "@/routes/paths";
 import { SITE } from "@/config/site";
 import Button from "../Button/Button";
 import Reveal from "../Reveal";
+import { CheckList } from "../Atoms";
+import { Container } from "../Section";
 import { LogoMark } from "../Logo/Logo";
-import "./CtaBanner.css";
 
 /** Closing call-to-action shown at the bottom of most pages. */
 export default function CtaBanner({
@@ -30,23 +31,22 @@ export default function CtaBanner({
   };
 
   return (
-    <section className="cta-section">
-      <div className="container">
-        <Reveal className="cta">
-          <LogoMark size={420} className="ribbon-bg" />
-          <h2>{title}<span className="serif">{accent}</span></h2>
-          <p>{text}</p>
-          <div className="cta-actions">
+    <section className="pt-[30px]">
+      <Container>
+        <Reveal className="relative overflow-hidden rounded-[26px] bg-[radial-gradient(circle_at_20%_0%,#ff74a8_0%,transparent_45%),radial-gradient(circle_at_90%_100%,#7a1c58_0%,transparent_50%),linear-gradient(135deg,#e6337a,#a8104f)] px-[22px] py-[60px] text-center text-white sm:rounded-[36px] sm:px-10 sm:py-20">
+          <LogoMark size={420} className="pointer-events-none absolute -top-[60px] -right-20 rotate-18 opacity-12 [&_rect]:fill-transparent" />
+          <h2 className="relative text-[clamp(36px,5.4vw,64px)] font-extrabold">
+            {title}
+            <span className="block font-accent text-pink-soft">{accent}</span>
+          </h2>
+          <p className="relative mx-auto mt-5 max-w-[580px] text-lg text-pink-soft">{text}</p>
+          <div className="relative mt-8 flex flex-wrap justify-center gap-3">
             <Button to={`${PATHS.SELF_CHECK}#tracker`} variant="light" icon={ArrowRight}>Set my reminder</Button>
             <Button variant="outline-light" iconLeft={Share2} onClick={share}>{copied ? "Link copied!" : "Share Pinoct"}</Button>
           </div>
-          <ul className="checks">
-            <li><CheckCircle2 /> Free &amp; private</li>
-            <li><CheckCircle2 /> Based on WHO &amp; ACS guidance</li>
-            <li><CheckCircle2 /> Works on any device</li>
-          </ul>
+          <CheckList light className="relative justify-center" items={["Free & private", "Based on WHO & ACS guidance", "Works on any device"]} />
         </Reveal>
-      </div>
+      </Container>
     </section>
   );
 }

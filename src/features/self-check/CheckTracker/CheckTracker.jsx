@@ -4,7 +4,6 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import { monthKey, suggestedCheckDay } from "@/utils/date";
 import ReminderPlanner from "./ReminderPlanner";
 import MonthTracker from "./MonthTracker";
-import "./CheckTracker.css";
 
 const STORAGE_KEY = "pinoct.checks";
 const INITIAL_FORM = { hasCycle: true, periodStart: "", fixedDay: 1, age: "", familyHistory: false };
@@ -27,7 +26,7 @@ export default function CheckTracker() {
   };
 
   return (
-    <div className="tool">
+    <div className="grid gap-[26px] xl:grid-cols-2">
       <Reveal>
         <ReminderPlanner form={form} setField={setField} reminderDay={reminderDay} />
       </Reveal>

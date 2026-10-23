@@ -1,5 +1,6 @@
 import { ArrowRight, CalendarPlus } from "lucide-react";
-import { Button, CtaBanner, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
+import { ActionRow, AwarenessBanner, Button, CtaBanner, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
+import { BANNERS } from "@/data/banners";
 import SelfCheckStepper from "@/features/self-check/SelfCheckStepper/SelfCheckStepper";
 import CheckTracker from "@/features/self-check/CheckTracker/CheckTracker";
 import SignsGrid from "@/features/awareness/SignsGrid/SignsGrid";
@@ -43,10 +44,12 @@ export default function SelfCheck() {
       <Section>
         <SectionHeader eyebrow="While you check" title="What are you looking for?" subtitle="Any of these 8 changes." />
         <SignsGrid />
-        <div className="section-cta">
+        <ActionRow>
           <Button to={PATHS.SCREENING} variant="ghost" icon={ArrowRight}>Next: screening by age</Button>
-        </div>
+        </ActionRow>
       </Section>
+
+      <AwarenessBanner banner={BANNERS.earlyDetection} className="pt-0 md:pt-0" />
 
       <CtaBanner />
     </>

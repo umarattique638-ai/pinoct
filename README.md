@@ -1,6 +1,6 @@
 # Pinoct — Breast Cancer Awareness
 
-React 19 + Vite + React Router 7 + Framer Motion.
+React 19 + Vite + **Tailwind CSS v4** + React Router 7 + Framer Motion.
 
 **Purpose:** spread breast cancer awareness, educate visitors, promote early detection, and provide useful information and resources.
 
@@ -35,21 +35,25 @@ src/
 ├─ layouts/MainLayout.jsx      Navbar + <Outlet/> + Footer (shared shell)
 ├─ pages/                      one file per route (lazy-loaded via pages/index.js)
 ├─ components/
-│  ├─ common/                  reusable UI: Button, Section, SectionHeader, PageHeader,
-│  │                           Accordion, Tabs, FormField, Logo, Seo, CtaBanner… (barrel: index.js)
+│  ├─ common/                  reusable UI: Button, Card/IconBox, Section/Container, SectionHeader,
+│  │                           PageHeader, AwarenessBanner, CtaBanner, Accordion, Tabs, FormField,
+│  │                           Pill/CheckList/Callout/Note, StepsRow, StatusScreen, Logo, Seo (barrel: index.js)
 │  └─ layout/                  Navbar, Footer, ScrollProgress, ScrollManager
 ├─ features/                   domain components: home, about, awareness, self-check, screening, contact
-├─ data/                       all page content (edit text here)
-├─ config/site.js              brand name, email, nav & footer links
+├─ data/                       all page content incl. banners.js (edit text here)
+├─ config/site.js              brand name, WhatsApp, email, nav & footer links
 ├─ hooks/                      useLocalStorage, useScrolled
-├─ utils/                      cn, date, ics, screening
-└─ styles/                     tokens.css (colours/fonts), base, typography, cards, forms, utilities
+├─ utils/                      cn (clsx + tailwind-merge), date, ics, screening
+└─ styles/index.css            Tailwind entry + @theme design tokens (colours, fonts, shadows, breakpoints, animations)
 ```
-Each component keeps its CSS next to it (e.g. `Hero/Hero.jsx` + `Hero/Hero.css`). Import alias: `@/` → `src/`.
+Styling is 100% Tailwind utility classes — there are no component CSS files. Design tokens live in `@theme` inside `src/styles/index.css` and are used as utilities (`bg-pink`, `text-muted`, `font-display`, `shadow-soft`, `rounded-card`…). Import alias: `@/` → `src/`.
 
 ## Change the font
 1. Update the Google Fonts `<link>` in `index.html`.
-2. Update `--font-sans`, `--font-display`, `--font-serif` in `src/styles/tokens.css`.
+2. Update `--font-sans`, `--font-display`, `--font-serif` in the `@theme` block of `src/styles/index.css`.
+
+## Awareness banners
+Edit or add campaign banners in `src/data/banners.js` and place them with `<AwarenessBanner banner={BANNERS.xyz} />`.
 
 ## Contact details
 Edit `whatsapp` (digits only, e.g. `923001234567`), `whatsappDisplay` and `email` in `src/config/site.js`.

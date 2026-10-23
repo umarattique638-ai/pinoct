@@ -1,5 +1,5 @@
 import { ArrowRight, Mail } from "lucide-react";
-import { Button, CtaBanner, PageHeader, Reveal, Section, SectionHeader, Seo } from "@/components/common";
+import { Button, CtaBanner, Note, PageHeader, Reveal, Section, SectionHeader, Seo } from "@/components/common";
 import { CancerTypes, MissionVision, Resources, RibbonHistory, Values } from "@/features/about/AboutSections";
 import FeatureCards from "@/features/home/FeatureCards";
 import { purpose } from "@/data/about";
@@ -22,15 +22,15 @@ export default function About() {
       </PageHeader>
 
       <Section>
-        <div className="split">
-          <div className="story">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
             <SectionHeader eyebrow="Our story" title="Why Pinoct exists." subtitle="Late diagnosis is often an information gap." />
-            <Reveal as="p">
+            <Reveal as="p" className="mt-[18px] text-[17px] text-muted">
               Every October the world turns pink. But a ribbon alone doesn't find a lump. Too many women still learn
-              about breast cancer only after it has spread — not because care didn't exist, but because <b>no one told
+              about breast cancer only after it has spread — not because care didn't exist, but because <b className="text-ink">no one told
               them what to look for, or when to get checked.</b>
             </Reveal>
-            <Reveal as="p" i={1}>
+            <Reveal as="p" i={1} className="mt-[18px] text-[17px] text-muted">
               Pinoct brings together trusted medical guidance into one friendly place: the warning signs, a
               5-step self-check you can actually remember, a screening guide by age, and free private tools that
               remind you every month.
@@ -59,7 +59,7 @@ export default function About() {
           lead="Breast cancer happens when cells in the breast grow out of control. Doctors classify it by where it starts and what drives its growth — which shapes treatment."
         />
         <CancerTypes />
-        <p className="note">Shares are approximate (American Cancer Society). Types can overlap — e.g. an invasive ductal cancer may also be HER2-positive.</p>
+        <Note>Shares are approximate (American Cancer Society). Types can overlap — e.g. an invasive ductal cancer may also be HER2-positive.</Note>
       </Section>
 
       <Section tone="dark">

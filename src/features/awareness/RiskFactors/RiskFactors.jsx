@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Tabs } from "@/components/common";
+import { Card, Tabs } from "@/components/common";
 import { risks } from "@/data/awareness";
-import "./RiskFactors.css";
+import { cn } from "@/utils/cn";
 
 const TABS = [
   { value: "fixed", label: "Can't be changed" },
@@ -12,9 +12,11 @@ const LEVEL_LABEL = { 1: "Lower impact", 2: "Moderate", 3: "Higher impact" };
 
 function RiskMeter({ level }) {
   return (
-    <div className="meter" aria-label={LEVEL_LABEL[level]}>
-      {[1, 2, 3].map((n) => <i key={n} className={n <= level ? "on" : ""} />)}
-      <span>{LEVEL_LABEL[level]}</span>
+    <div className="mt-[18px] flex items-center gap-1" aria-label={LEVEL_LABEL[level]}>
+      {[1, 2, 3].map((n) => (
+        <i key={n} className={cn("h-1.5 flex-1 rounded-full", n <= level ? "bg-pink" : "bg-bg-2")} />
+      ))}
+      <span className="ml-2 min-w-[76px] text-xs font-bold whitespace-nowrap text-muted">{LEVEL_LABEL[level]}</span>
     </div>
   );
 }
@@ -25,13 +27,20 @@ export default function RiskFactors() {
     <>
       <Tabs tabs={TABS} value={tab} onChange={setTab} label="Risk factor type" />
       <AnimatePresence mode="wait">
-        <motion.div key={tab} className="risk-grid" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: 0.3 }}>
+        <motion.div
+          key={tab}
+          className="grid grid-cols-1 gap-4 md:grid-cols-3"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -14 }}
+          transition={{ duration: 0.3 }}
+        >
           {risks[tab].map((r) => (
-            <div key={r.title} className="card risk">
-              <h3>{r.title}</h3>
-              <p>{r.text}</p>
+            <Card key={r.title} className="p-6">
+              <h3 className="text-[19px] font-bold">{r.title}</h3>
+              <p className="mt-2 text-[14.5px] text-muted">{r.text}</p>
               <RiskMeter level={r.level} />
-            </div>
+            </Card>
           ))}
         </motion.div>
       </AnimatePresence>

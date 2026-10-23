@@ -1,5 +1,6 @@
 import { ArrowRight, Info } from "lucide-react";
-import { Button, CtaBanner, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
+import { AwarenessBanner, Button, CtaBanner, Note, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
+import { BANNERS } from "@/data/banners";
 import ScreeningTimeline from "@/features/screening/ScreeningTimeline/ScreeningTimeline";
 import { MammogramSteps, ScreeningMethods } from "@/features/screening/ScreeningMethods";
 import { PATHS } from "@/routes/paths";
@@ -23,9 +24,9 @@ export default function Screening() {
         <SectionHeader eyebrow="Screening by age" title="When should you get screened?" subtitle="A simple guide, decade by decade." align="center"
           lead="A general guide for women at average risk." />
         <ScreeningTimeline />
-        <p className="note"><Info />
+        <Note icon={Info}>
           Guidelines differ between countries and organisations. If you have a strong family history, a known BRCA mutation, or had chest radiation when young, you may need to start earlier and add MRI — ask your doctor.
-        </p>
+        </Note>
       </Section>
 
       <Section tone="tint">
@@ -38,6 +39,8 @@ export default function Screening() {
           lead="Knowing what happens takes away most of the worry. Here's the visit in four steps." />
         <MammogramSteps />
       </Section>
+
+      <AwarenessBanner banner={BANNERS.mammogram} className="pt-16 md:pt-20" />
 
       <CtaBanner />
     </>

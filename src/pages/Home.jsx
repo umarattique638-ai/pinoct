@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { Accordion, Button, CtaBanner, Section, SectionHeader, Seo } from "@/components/common";
+import { Accordion, ActionRow, AwarenessBanner, Button, CtaBanner, Section, SectionHeader, Seo } from "@/components/common";
 import Hero from "@/features/home/Hero/Hero";
 import StatsStrip from "@/features/home/StatsStrip/StatsStrip";
 import Marquee from "@/features/home/Marquee/Marquee";
@@ -10,6 +10,7 @@ import ScreeningTimeline from "@/features/screening/ScreeningTimeline/ScreeningT
 import { explore, pillars } from "@/data/home";
 import { featuredFaqs } from "@/data/faqs";
 import { PATHS } from "@/routes/paths";
+import { BANNERS } from "@/data/banners";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
       <Seo />
       <Hero />
       <StatsStrip />
+
+      <AwarenessBanner banner={BANNERS.awarenessMonth} className="pt-16 pb-0 md:pt-20 md:pb-0" />
 
       <Section>
         <SectionHeader
@@ -36,9 +39,9 @@ export default function Home() {
           lead="A self-exam won't replace screening, but it helps you know your normal so you can spot changes early. Click through each step."
         />
         <SelfCheckStepper />
-        <div className="section-cta">
+        <ActionRow>
           <Button to={`${PATHS.SELF_CHECK}#tracker`} icon={ArrowRight}>Set a monthly reminder</Button>
-        </div>
+        </ActionRow>
       </Section>
 
       <Section>
@@ -51,6 +54,8 @@ export default function Home() {
         <SignsGrid />
       </Section>
 
+      <AwarenessBanner banner={BANNERS.earlyDetection} className="pt-0 md:pt-0" />
+
       <Marquee />
 
       <Section>
@@ -61,9 +66,9 @@ export default function Home() {
           align="center"
         />
         <ScreeningTimeline />
-        <div className="section-cta center">
+        <ActionRow center>
           <Button to={PATHS.SCREENING} variant="ghost" icon={ArrowRight}>Full screening guide</Button>
-        </div>
+        </ActionRow>
       </Section>
 
       <Section tone="tint">
@@ -71,19 +76,20 @@ export default function Home() {
         <FeatureCards items={explore} columns={4} />
       </Section>
 
-      <Section containerClassName="faq-grid">
+      <Section containerClassName="grid items-start gap-5 xl:grid-cols-[0.8fr_1.2fr] xl:gap-[60px]">
         <SectionHeader
           eyebrow="FAQ"
+          className="xl:sticky xl:top-[110px]"
           title="Quick answers."
           subtitle="To the questions people ask most."
           lead="Trusted answers to common questions. See all of them on the FAQ page, or reach the team on WhatsApp or email."
         />
         <div>
           <Accordion items={featuredFaqs} />
-          <div className="section-cta">
+          <ActionRow>
             <Button to={PATHS.FAQ} variant="ghost" icon={ArrowRight}>All FAQs</Button>
             <Button to={PATHS.CONTACT} variant="dark" icon={ArrowRight}>Contact us</Button>
-          </div>
+          </ActionRow>
         </div>
       </Section>
 

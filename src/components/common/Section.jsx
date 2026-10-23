@@ -1,10 +1,24 @@
 import { cn } from "@/utils/cn";
+import { SectionToneContext } from "./sectionTone";
 
-/** Standard page section: vertical rhythm + centered container. tone: default | tint | dark */
+const TONES = {
+  default: "",
+  tint: "bg-bg-2",
+  dark: "bg-plum text-[#fbeaf2]",
+};
+
+/** Page-width wrapper (1200px max). */
+export function Container({ className, children }) {
+  return <div className={cn("container-page", className)}>{children}</div>;
+}
+
+/** Standard page section: vertical rhythm + centred container + colour tone. */
 export default function Section({ id, tone = "default", className, containerClassName, children }) {
   return (
-    <section id={id} className={cn("section", tone !== "default" && tone, className)}>
-      <div className={cn("container", containerClassName)}>{children}</div>
-    </section>
+    <SectionToneContext.Provider value={tone}>
+      <section id={id} className={cn("relative py-20 md:py-[110px]", TONES[tone], className)}>
+        <Container className={containerClassName}>{children}</Container>
+      </section>
+    </SectionToneContext.Provider>
   );
 }
