@@ -1,7 +1,7 @@
 // Cloudflare Workers (static assets). "name" must match your existing Worker so it gets replaced.
 // Deploy: npm run build && npx wrangler deploy
 {
-  "name": "jolly-star-4694",
+  "name": "floral-sea-bf90",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./dist",

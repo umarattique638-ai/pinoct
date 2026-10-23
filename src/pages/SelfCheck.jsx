@@ -8,13 +8,13 @@ import { PATHS } from "@/routes/paths";
 export default function SelfCheck() {
   return (
     <>
-      <Seo title="5-step self-check" description="An interactive guide to the monthly breast self-exam, plus a free private reminder and tracker." />
+      <Seo title="5-step self-check" description="Promote early detection with the monthly 5-step breast self-check — an interactive guide plus a free, private reminder and tracker." />
       <PageHeader
         crumb="Self-check"
         eyebrow="Monthly self-check"
         title="Five minutes."
         accent="Once a month."
-        lead="Follow the five steps, set a monthly reminder in your own calendar and keep track of your checks. Everything stays on your device."
+        lead="Early detection starts at home. Learn the five steps, set a monthly reminder and track your checks — so you notice any change early. Everything stays on your device."
       >
         <Button href="#guide" icon={ArrowRight}>Start the guide</Button>
         <Button href="#tracker" variant="ghost" iconLeft={CalendarPlus}>Set a reminder</Button>

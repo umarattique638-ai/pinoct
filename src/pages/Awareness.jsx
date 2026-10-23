@@ -8,13 +8,13 @@ import MythsTable from "@/features/awareness/MythsTable/MythsTable";
 export default function Awareness() {
   return (
     <>
-      <Seo title="Awareness hub" description="Breast cancer warning signs, risk factors, stages and common myths — explained simply." />
+      <Seo title="Awareness hub" description="Learn breast cancer warning signs, risk factors, stages and the truth behind common myths — awareness that leads to early detection." />
       <PageHeader
         crumb="Awareness"
         eyebrow="Awareness hub"
         title="Know the facts."
         accent="Spot it early."
-        lead="Everything you need to recognise breast cancer early: the warning signs, what raises risk, how stages work, and the myths that delay diagnosis."
+        lead="Awareness starts with knowing what to look for. Learn the warning signs, what raises risk, how stages work and the myths that delay diagnosis — so breast cancer can be found early."
       >
         <Button href="#signs" icon={ArrowRight}>Warning signs</Button>
         <Button href="#myths" variant="ghost">Myths vs facts</Button>
@@ -55,7 +55,7 @@ export default function Awareness() {
           eyebrow="Myth vs fact"
           title="Common myths, busted."
           subtitle="Don't let misinformation delay a check."
-          lead="Misunderstandings stop people from getting checked. Here's what the evidence actually says."
+          lead="Misinformation delays early detection. Here's what trusted medical evidence actually says."
         />
         <MythsTable />
       </Section>

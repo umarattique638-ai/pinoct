@@ -9,7 +9,7 @@ import { PATHS } from "@/routes/paths";
 export default function About() {
   return (
     <>
-      <Seo title="About us" description="Pinoct is a breast cancer awareness initiative turning awareness into action: self-checks, screening and early detection." />
+      <Seo title="About us" description="Pinoct spreads breast cancer awareness, educates visitors, promotes early detection and shares useful information and resources." />
       <PageHeader
         crumb="About"
         eyebrow="About Pinoct"

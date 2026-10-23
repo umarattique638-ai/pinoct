@@ -11,7 +11,7 @@ import "./CtaBanner.css";
 export default function CtaBanner({
   title = "Five minutes a month.",
   accent = "Could save a life.",
-  text = "Do your self-check today, remind the women you love to do theirs, and share Pinoct — awareness only works when it's passed on.",
+  text = "Early detection saves lives. Do your self-check today, remind the women you love to do theirs, and share Pinoct — awareness only works when it's passed on.",
 }) {
   const [copied, setCopied] = useState(false);
 

@@ -8,13 +8,13 @@ import { PATHS } from "@/routes/paths";
 export default function Contact() {
   return (
     <>
-      <Seo title="Contact" description="Reach the Pinoct team on WhatsApp or email — questions, awareness sessions, partnerships and feedback." />
+      <Seo title="Contact" description="Contact Pinoct on WhatsApp or email — questions, awareness sessions, partnerships and help finding breast cancer resources." />
       <PageHeader
         crumb="Contact"
         eyebrow="Contact us"
         title="Let's talk."
         accent="We'd love to hear from you."
-        lead="Want to host an awareness session, partner with us, or just have a question? Message the Pinoct team on WhatsApp or send us an email."
+        lead="Want to host an awareness session, help spread the message, or need help finding the right information and resources? Message the Pinoct team on WhatsApp or email."
       />
       <Section>
         <ContactChannels />

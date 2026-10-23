@@ -76,7 +76,7 @@ export default function Home() {
           eyebrow="FAQ"
           title="Quick answers."
           subtitle="To the questions people ask most."
-          lead="See all questions on the FAQ page, or get in touch with the team."
+          lead="Trusted answers to common questions. See all of them on the FAQ page, or reach the team on WhatsApp or email."
         />
         <div>
           <Accordion items={featuredFaqs} />

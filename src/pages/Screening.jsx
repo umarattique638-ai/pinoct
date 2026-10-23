@@ -7,13 +7,13 @@ import { PATHS } from "@/routes/paths";
 export default function Screening() {
   return (
     <>
-      <Seo title="Screening guide" description="When to start mammograms, how often, the different screening tests and what to expect at your appointment." />
+      <Seo title="Screening guide" description="Screening is the most powerful tool for early detection. Learn when to start mammograms, which tests exist and what to expect." />
       <PageHeader
         crumb="Screening"
         eyebrow="Screening guide"
         title="Find it before"
         accent="you can feel it."
-        lead="A mammogram can find breast cancer years before it causes symptoms. Here's when to start, which tests exist, and what actually happens on the day."
+        lead="Screening is the strongest tool for early detection — a mammogram can find breast cancer years before symptoms appear. Learn when to start, which tests exist and what happens on the day."
       >
         <Button href="#by-age" icon={ArrowRight}>Screening by age</Button>
         <Button to={`${PATHS.SELF_CHECK}#tracker`} variant="ghost">Get my personal tip</Button>

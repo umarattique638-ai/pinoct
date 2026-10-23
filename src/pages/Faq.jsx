@@ -19,13 +19,13 @@ export default function Faq() {
 
   return (
     <>
-      <Seo title="FAQ" description="Answers to common questions about breast cancer, self-checks, mammograms, risk and treatment." />
+      <Seo title="FAQ" description="Trusted, easy-to-understand answers about breast cancer, self-checks, screening, risk and treatment." />
       <PageHeader
         crumb="FAQ"
         eyebrow="Frequently asked questions"
         title="Everything you"
         accent="need to know."
-        lead="Clear answers to the questions people ask most. Can't find yours? Send us a message."
+        lead="Clear, trusted answers to the questions people ask most about breast cancer, self-checks and screening. Can't find yours? Reach us on WhatsApp or email."
       />
 
       <Section>
@@ -50,7 +50,7 @@ export default function Faq() {
         </div>
       </Section>
 
-      <CtaBanner title="Still have a question?" accent="We're here to help." text="Send the Pinoct team a message, or start with the 5-step self-check today." />
+      <CtaBanner title="Still have a question?" accent="We're here to help." text="Reach the Pinoct team on WhatsApp or email — or take the first step towards early detection with the 5-step self-check today." />
     </>
   );
 }

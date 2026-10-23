@@ -12,7 +12,7 @@ import "./Navbar.css";
 function AnnouncementBar() {
   return (
     <div className="announce">
-      <b>October is Breast Cancer Awareness Month.</b> One self-check a month can change everything.
+      <b>October is Breast Cancer Awareness Month.</b> Spread the word — early detection saves lives.
       <Link to={`${PATHS.SELF_CHECK}#tracker`}>Set your reminder →</Link>
     </div>
   );
