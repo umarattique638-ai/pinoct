@@ -3,7 +3,7 @@ import { Button, CtaBanner, Note, PageHeader, Reveal, Section, SectionHeader, Se
 import { CancerTypes, MissionVision, Resources, RibbonHistory, Values } from "@/features/about/AboutSections";
 import FeatureCards from "@/features/home/FeatureCards";
 import { purpose } from "@/data/about";
-import StatsStrip from "@/features/home/StatsStrip/StatsStrip";
+import { CLIENT, SCHOOL } from "@/config/site";
 import { PATHS } from "@/routes/paths";
 
 export default function About() {
@@ -15,7 +15,7 @@ export default function About() {
         eyebrow="About Pinoct"
         title="We turn awareness into"
         accent="action."
-        lead="Pinoct — from pink + October — exists to spread breast cancer awareness, educate visitors, promote early detection, and provide useful information and resources, all year round."
+        lead={`Pinoct — from pink + October — is a breast cancer awareness initiative by ${SCHOOL.name}, led by ${CLIENT.name}. It exists to spread awareness, educate visitors, promote early detection, and provide useful information and resources.`}
       >
         <Button to={PATHS.AWARENESS} icon={ArrowRight}>Start learning</Button>
         <Button to={PATHS.CONTACT} variant="ghost" iconLeft={Mail}>Get in touch</Button>
@@ -31,7 +31,7 @@ export default function About() {
               them what to look for, or when to get checked.</b>
             </Reveal>
             <Reveal as="p" i={1} className="mt-[18px] text-[17px] text-muted">
-              Pinoct brings together trusted medical guidance into one friendly place: the warning signs, a
+              Created at <b className="text-ink">{SCHOOL.name}</b> under the leadership of <b className="text-ink">{CLIENT.name}</b>, Pinoct brings together trusted medical guidance into one friendly place: the warning signs, a
               5-step self-check you can actually remember, a screening guide by age, and free private tools that
               remind you every month.
             </Reveal>
@@ -49,7 +49,6 @@ export default function About() {
         <FeatureCards items={purpose} columns={4} />
       </Section>
 
-      <StatsStrip />
 
       <Section tone="tint">
         <SectionHeader

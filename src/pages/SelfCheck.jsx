@@ -1,9 +1,7 @@
-import { ArrowRight, CalendarPlus } from "lucide-react";
-import { ActionRow, AwarenessBanner, Button, CtaBanner, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
-import { BANNERS } from "@/data/banners";
+import { ArrowRight, CalendarPlus, Search } from "lucide-react";
+import { Button, Callout, CtaBanner, IconBox, PageHeader, Section, SectionHeader, Seo } from "@/components/common";
 import SelfCheckStepper from "@/features/self-check/SelfCheckStepper/SelfCheckStepper";
 import CheckTracker from "@/features/self-check/CheckTracker/CheckTracker";
-import SignsGrid from "@/features/awareness/SignsGrid/SignsGrid";
 import { PATHS } from "@/routes/paths";
 
 export default function SelfCheck() {
@@ -41,15 +39,21 @@ export default function SelfCheck() {
         <CheckTracker />
       </Section>
 
-      <Section>
-        <SectionHeader eyebrow="While you check" title="What are you looking for?" subtitle="Any of these 8 changes." />
-        <SignsGrid />
-        <ActionRow>
-          <Button to={PATHS.SCREENING} variant="ghost" icon={ArrowRight}>Next: screening by age</Button>
-        </ActionRow>
+      <Section className="py-16 md:py-20">
+        <Callout className="mt-0">
+          <div className="flex items-center gap-4">
+            <IconBox icon={Search} className="m-0 bg-white" hoverEffect={false} />
+            <div>
+              <b className="font-display text-xl">What are you looking for?</b>
+              <p className="mt-1 text-muted">See the 8 warning signs to watch for during your monthly check.</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button to={`${PATHS.AWARENESS}#signs`} variant="dark" icon={ArrowRight}>Warning signs</Button>
+            <Button to={PATHS.SCREENING} variant="ghost">Screening by age</Button>
+          </div>
+        </Callout>
       </Section>
-
-      <AwarenessBanner banner={BANNERS.earlyDetection} className="pt-0 md:pt-0" />
 
       <CtaBanner />
     </>

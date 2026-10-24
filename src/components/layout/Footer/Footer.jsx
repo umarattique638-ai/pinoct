@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUp, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ArrowUp, Mail, School, UserRound } from "lucide-react";
 import { Container, Logo } from "@/components/common";
-import { FOOTER_GROUPS, SITE, TRUSTED_SOURCES } from "@/config/site";
+import { CLIENT, FOOTER_GROUPS, SCHOOL, SITE, TRUSTED_SOURCES } from "@/config/site";
 import useScrolled from "@/hooks/useScrolled";
 
 function BackToTop() {
@@ -48,16 +48,16 @@ export default function Footer() {
             <p className="mt-4 max-w-[320px] text-[14.5px] text-muted">{SITE.description}</p>
             <ul className="mt-[18px] grid gap-2.5">
               <li className="flex items-center gap-2 text-[14.5px] text-muted">
-                <MessageCircle className="w-4 shrink-0 text-pink" aria-hidden="true" />
-                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" className={linkClass}>{SITE.whatsappDisplay}</a>
+                <School className="w-4 shrink-0 text-pink" aria-hidden="true" />
+                {SCHOOL.name}
+              </li>
+              <li className="flex items-center gap-2 text-[14.5px] text-muted">
+                <UserRound className="w-4 shrink-0 text-pink" aria-hidden="true" />
+                {CLIENT.role}: {CLIENT.name}
               </li>
               <li className="flex items-center gap-2 text-[14.5px] text-muted">
                 <Mail className="w-4 shrink-0 text-pink" aria-hidden="true" />
-                <a href={`mailto:${SITE.email}`} className={linkClass}>{SITE.email}</a>
-              </li>
-              <li className="flex items-center gap-2 text-[14.5px] text-muted">
-                <MapPin className="w-4 shrink-0 text-pink" aria-hidden="true" />
-                {SITE.location}
+                <a href={`mailto:${SITE.email}`} className={`${linkClass} break-all`}>{SITE.email}</a>
               </li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ export default function Footer() {
           <b>Medical disclaimer:</b> {SITE.name} is for education and awareness only and is not a substitute for professional medical advice, diagnosis or treatment. If you notice any change in your breasts, please consult a qualified doctor.
         </div>
         <div className="mt-[26px] flex flex-wrap justify-between gap-3 text-[13.5px] text-muted">
-          <span>© {YEAR} {SITE.name}. Made with 🎀 for every woman.</span>
+          <span>© {YEAR} {SITE.name} · {SCHOOL.name}. Made with 🎀 for every woman.</span>
           <span>{SITE.tagline}</span>
         </div>
       </Container>

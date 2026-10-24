@@ -1,58 +1,65 @@
-import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
-import { Reveal } from "@/components/common";
-import { contactChannels } from "@/data/contact";
-import { cn } from "@/utils/cn";
+import { useState } from "react";
+import { ArrowUpRight, Check, Copy, Mail } from "lucide-react";
+import { LogoMark, Reveal } from "@/components/common";
+import { CLIENT, SCHOOL } from "@/config/site";
+import { contactEmail } from "@/data/contact";
 
-const ICONS = { whatsapp: MessageCircle, email: Mail };
-
-/** Per-channel accent colours. */
-const THEME = {
-  whatsapp: {
-    icon: "bg-whatsapp shadow-[0_14px_30px_-12px_var(--color-whatsapp)]",
-    cta: "text-whatsapp",
-    border: "hover:border-[#b7e8c8]",
-    glow: "bg-[radial-gradient(circle,rgba(34,197,94,0.35),transparent_65%)]",
-  },
-  email: {
-    icon: "bg-pink shadow-[0_14px_30px_-12px_var(--color-pink)]",
-    cta: "text-pink",
-    border: "hover:border-line-hover",
-    glow: "bg-[radial-gradient(circle,rgba(255,116,168,0.4),transparent_65%)]",
-  },
-};
-
-/** Big clickable WhatsApp + Email cards. */
+/** Single, prominent email contact card with the project lead's details. */
 export default function ContactChannels() {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(contactEmail.value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard unavailable */
+    }
+  };
+
   return (
-    <div className="mx-auto grid max-w-[920px] grid-cols-1 gap-[22px] md:grid-cols-2">
-      {contactChannels.map((c, i) => {
-        const Icon = ICONS[c.id];
-        const t = THEME[c.id];
-        return (
-          <Reveal key={c.id} i={i}>
+    <Reveal className="mx-auto max-w-[760px]">
+      <div className="relative overflow-hidden rounded-[30px] border border-line bg-white p-7 shadow-soft md:p-12">
+        <span aria-hidden="true" className="absolute -top-[120px] -right-[120px] size-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,116,168,0.35),transparent_65%)]" />
+
+        <div className="relative flex flex-col items-center text-center">
+          <span className="grid size-[68px] place-items-center rounded-[20px] bg-pink text-white shadow-[0_14px_30px_-12px_var(--color-pink)]">
+            <Mail className="size-8" aria-hidden="true" />
+          </span>
+          <h2 className="mt-6 text-[clamp(28px,3.4vw,38px)] font-extrabold">{contactEmail.title}</h2>
+          <p className="mt-3 max-w-[520px] text-[16px] text-muted">{contactEmail.text}</p>
+
+          <a href={contactEmail.href} className="mt-7 font-display text-[clamp(18px,2.6vw,28px)] font-bold break-all text-ink hover:text-pink">
+            {contactEmail.value}
+          </a>
+
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
-              href={c.href}
-              {...(c.external && { target: "_blank", rel: "noopener noreferrer" })}
-              className={cn(
-                "group relative flex h-full flex-col overflow-hidden rounded-[26px] border border-line bg-white p-[26px] transition duration-300 hover:-translate-y-1.5 hover:shadow-soft md:p-[34px]",
-                t.border
-              )}
+              href={contactEmail.href}
+              className="inline-flex items-center gap-2.5 rounded-full bg-pink px-[26px] py-[15px] text-[15.5px] font-bold text-white shadow-pink transition hover:-translate-y-0.5 hover:bg-pink-dark"
             >
-              <span aria-hidden="true" className={cn("absolute -top-[110px] -right-[110px] size-[260px] rounded-full opacity-55 transition-opacity duration-300 group-hover:opacity-100", t.glow)} />
-              <span className={cn("relative grid size-[60px] place-items-center rounded-[18px] text-white [&>svg]:size-7", t.icon)}>
-                <Icon aria-hidden="true" />
-              </span>
-              <span className="relative mt-[22px] font-display text-[26px] font-extrabold tracking-[-0.03em]">{c.title}</span>
-              <p className="relative mt-2 text-[15.5px] text-muted">{c.text}</p>
-              <span className="relative mt-[18px] font-display text-[22px] font-bold break-words text-ink">{c.value}</span>
-              <span className={cn("relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[15px] font-bold", t.cta)}>
-                {c.cta}
-                <ArrowUpRight className="w-[18px] transition-transform duration-200 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]" aria-hidden="true" />
-              </span>
+              {contactEmail.cta} <ArrowUpRight className="size-[18px]" aria-hidden="true" />
             </a>
-          </Reveal>
-        );
-      })}
-    </div>
+            <button
+              type="button"
+              onClick={copy}
+              className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white px-[26px] py-[15px] text-[15.5px] font-bold text-ink transition hover:border-pink hover:text-pink"
+            >
+              {copied ? <Check className="size-[18px] text-ok" aria-hidden="true" /> : <Copy className="size-[18px]" aria-hidden="true" />}
+              {copied ? "Copied!" : "Copy email"}
+            </button>
+          </div>
+
+          <div className="mt-10 flex w-full items-center gap-4 rounded-[20px] border border-line bg-bg-2 p-4 text-left">
+            <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white"><LogoMark size={46} /></span>
+            <div className="min-w-0">
+              <b className="block font-display text-lg">{CLIENT.name}</b>
+              <span className="text-[13.5px] font-semibold text-muted">{CLIENT.role} · {SCHOOL.name}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Reveal>
   );
 }

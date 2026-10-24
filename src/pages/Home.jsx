@@ -1,97 +1,44 @@
-import { ArrowRight } from "lucide-react";
-import { Accordion, ActionRow, AwarenessBanner, Button, CtaBanner, Section, SectionHeader, Seo } from "@/components/common";
+import { AwarenessBanner, CtaBanner, Section, SectionHeader, Seo } from "@/components/common";
 import Hero from "@/features/home/Hero/Hero";
-import StatsStrip from "@/features/home/StatsStrip/StatsStrip";
+import Initiative from "@/features/home/Initiative/Initiative";
 import Marquee from "@/features/home/Marquee/Marquee";
 import FeatureCards from "@/features/home/FeatureCards";
-import SelfCheckStepper from "@/features/self-check/SelfCheckStepper/SelfCheckStepper";
-import SignsGrid from "@/features/awareness/SignsGrid/SignsGrid";
-import ScreeningTimeline from "@/features/screening/ScreeningTimeline/ScreeningTimeline";
 import { explore, pillars } from "@/data/home";
-import { featuredFaqs } from "@/data/faqs";
-import { PATHS } from "@/routes/paths";
 import { BANNERS } from "@/data/banners";
 
+/**
+ * Home is an overview only: hero, the school initiative, and entry points to
+ * each topic page. Detailed content (self-check, signs, screening, FAQ) lives
+ * on its own page and is not repeated here.
+ */
 export default function Home() {
   return (
     <>
       <Seo />
       <Hero />
-      <StatsStrip />
 
-      <AwarenessBanner banner={BANNERS.awarenessMonth} className="pt-16 pb-0 md:pt-20 md:pb-0" />
+      <AwarenessBanner banner={BANNERS.awarenessMonth} className="pt-6 pb-0 md:pt-6 md:pb-0" />
 
-      <Section>
+      <Initiative />
+
+      <Section tone="tint">
         <SectionHeader
           eyebrow="Why it matters"
           title="Awareness that acts."
           subtitle="Not just a pink ribbon."
-          lead="Pinoct exists to spread breast cancer awareness, educate visitors, promote early detection and share trusted information and resources — because awareness only matters if it changes what we do."
+          lead="Breast cancer is the most common cancer among women worldwide. Awareness only matters if it changes what we do — checking, noticing, and getting screened on time."
         />
         <FeatureCards items={pillars} />
       </Section>
 
-      <Section tone="tint" id="self-check">
-        <SectionHeader
-          eyebrow="5-step self-check"
-          title="The monthly self-check."
-          subtitle="Five minutes. Once a month."
-          lead="A self-exam won't replace screening, but it helps you know your normal so you can spot changes early. Click through each step."
-        />
-        <SelfCheckStepper />
-        <ActionRow>
-          <Button to={`${PATHS.SELF_CHECK}#tracker`} icon={ArrowRight}>Set a monthly reminder</Button>
-        </ActionRow>
-      </Section>
-
       <Section>
-        <SectionHeader
-          eyebrow="Warning signs"
-          title="8 signs to never ignore."
-          subtitle="Changes worth a doctor's visit."
-          lead="Some people have no symptoms at all, which is why screening matters. But if you notice any of these, don't wait — most changes are not cancer, yet every change deserves a check."
-        />
-        <SignsGrid />
+        <SectionHeader eyebrow="Explore Pinoct" title="Everything in one place." subtitle="Pick where to start." />
+        <FeatureCards items={explore} columns={4} />
       </Section>
 
       <AwarenessBanner banner={BANNERS.earlyDetection} className="pt-0 md:pt-0" />
 
       <Marquee />
-
-      <Section>
-        <SectionHeader
-          eyebrow="Screening by age"
-          title="When should you get screened?"
-          subtitle="A simple guide, decade by decade."
-          align="center"
-        />
-        <ScreeningTimeline />
-        <ActionRow center>
-          <Button to={PATHS.SCREENING} variant="ghost" icon={ArrowRight}>Full screening guide</Button>
-        </ActionRow>
-      </Section>
-
-      <Section tone="tint">
-        <SectionHeader eyebrow="Explore Pinoct" title="Everything in one place." subtitle="Pick where to start." />
-        <FeatureCards items={explore} columns={4} />
-      </Section>
-
-      <Section containerClassName="grid items-start gap-5 xl:grid-cols-[0.8fr_1.2fr] xl:gap-[60px]">
-        <SectionHeader
-          eyebrow="FAQ"
-          className="xl:sticky xl:top-[110px]"
-          title="Quick answers."
-          subtitle="To the questions people ask most."
-          lead="Trusted answers to common questions. See all of them on the FAQ page, or reach the team on WhatsApp or email."
-        />
-        <div>
-          <Accordion items={featuredFaqs} />
-          <ActionRow>
-            <Button to={PATHS.FAQ} variant="ghost" icon={ArrowRight}>All FAQs</Button>
-            <Button to={PATHS.CONTACT} variant="dark" icon={ArrowRight}>Contact us</Button>
-          </ActionRow>
-        </div>
-      </Section>
 
       <CtaBanner />
     </>

@@ -25,7 +25,7 @@ export default function Faq() {
         eyebrow="Frequently asked questions"
         title="Everything you"
         accent="need to know."
-        lead="Clear, trusted answers to the questions people ask most about breast cancer, self-checks and screening. Can't find yours? Reach us on WhatsApp or email."
+        lead="Clear, trusted answers to the questions people ask most about breast cancer, self-checks and screening. Can't find yours? Send us an email."
       />
 
       <Section>
@@ -68,7 +68,7 @@ export default function Faq() {
       <CtaBanner
         title="Still have a question?"
         accent="We're here to help."
-        text="Reach the Pinoct team on WhatsApp or email — or take the first step towards early detection with the 5-step self-check today."
+        text="Email the Pinoct team — or take the first step towards early detection with the 5-step self-check today."
       />
     </>
   );

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Bell, CalendarHeart, Check, CheckCircle2, PlayCircle, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Bell, CalendarHeart, Check, CheckCircle2, Mail, PlayCircle, ShieldCheck } from "lucide-react";
 import { Button, Container, LogoMark, Pill, Reveal } from "@/components/common";
 import { heroChecklist, heroRotatingWords, heroSources } from "@/data/home";
+import { CLIENT, SCHOOL } from "@/config/site";
 import { PATHS } from "@/routes/paths";
 import { cn } from "@/utils/cn";
 
@@ -171,11 +172,46 @@ function HeroMockup() {
   );
 }
 
-const PROOF = [
-  { value: "5 min", label: "once a month" },
-  { value: "~99%", label: "survival when found early" },
-  { value: "100%", label: "free & private" },
-];
+/** Prominent "presented by" block: school logo + name. */
+function SchoolBadge() {
+  return (
+    <div className="inline-flex items-center gap-4 rounded-[22px] border border-line bg-white/85 py-3 pr-6 pl-3 shadow-[0_10px_30px_-16px_rgba(230,51,122,0.55)] backdrop-blur">
+      <span className="grid size-[64px] shrink-0 place-items-center rounded-2xl bg-bg-2">
+        <LogoMark size={54} />
+      </span>
+      <span>
+        <span className="block text-[11.5px] font-bold tracking-[0.14em] text-pink uppercase">Presented by</span>
+        <span className="mt-0.5 block font-display text-[clamp(17px,2vw,22px)] leading-tight font-extrabold tracking-[-0.01em] text-ink uppercase">
+          {SCHOOL.name}
+        </span>
+        <span className="mt-0.5 block text-[13px] font-semibold text-muted">Breast Cancer Awareness Initiative</span>
+      </span>
+    </div>
+  );
+}
+
+/** Project-lead credit card. */
+function ClientCard() {
+  return (
+    <div className="flex items-center gap-3 rounded-[20px] border border-line bg-white/80 p-3.5 backdrop-blur sm:inline-flex sm:gap-4 sm:p-4 sm:pr-5">
+      <span className="grid size-12 shrink-0 place-items-center rounded-full bg-linear-135 sm:size-[52px] from-pink to-pink-deep font-display text-lg font-extrabold text-white shadow-pink-sm">
+        {CLIENT.initials}
+      </span>
+      <div className="min-w-0 flex-1">
+        <span className="block text-[11.5px] font-bold tracking-[0.12em] text-muted uppercase">Initiative led by</span>
+        <b className="block font-display text-[20px] leading-tight font-extrabold text-ink sm:text-[22px]">{CLIENT.name}</b>
+        <span className="block text-[12.5px] leading-snug font-semibold text-muted sm:text-[13px]">{CLIENT.role} · {SCHOOL.name}</span>
+      </div>
+      <a
+        href={`mailto:${CLIENT.email}`}
+        aria-label={`Email ${CLIENT.name}`}
+        className="grid size-10 shrink-0 place-items-center rounded-full border border-line text-pink transition hover:border-pink hover:bg-pink hover:text-white sm:ml-2"
+      >
+        <Mail className="size-[18px]" aria-hidden="true" />
+      </a>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -191,12 +227,7 @@ export default function Hero() {
       <Container className="relative grid items-center gap-20 xl:grid-cols-[1.05fr_0.95fr] xl:gap-16">
         <div>
           <Reveal>
-            <span className="inline-flex items-center gap-2.5 rounded-full border border-line bg-white py-[5px] pr-4 pl-[5px] text-sm font-semibold text-ink-2 shadow-[0_6px_20px_-12px_rgba(230,51,122,0.6)]">
-              <span className="inline-flex items-center gap-[5px] rounded-full bg-linear-120 from-pink to-[#ff5c9a] px-[11px] py-[5px] text-[12.5px] font-bold text-white">
-                <Sparkles className="size-[13px]" aria-hidden="true" /> Oct 2026
-              </span>
-              Breast Cancer Awareness Month
-            </span>
+            <SchoolBadge />
           </Reveal>
 
           <Reveal i={1} as="h1" className="mt-6 text-[clamp(44px,5.2vw,72px)] leading-none font-extrabold tracking-[-0.045em]">
@@ -215,16 +246,8 @@ export default function Hero() {
             <Button to={`${PATHS.AWARENESS}#signs`} variant="ghost" iconLeft={PlayCircle}>8 warning signs</Button>
           </Reveal>
 
-          <Reveal i={4} className="mt-[38px] flex flex-wrap items-center gap-3.5 md:gap-[22px]">
-            {PROOF.map((p, i) => (
-              <div key={p.value} className="flex flex-[1_1_30%] items-center gap-[22px] md:flex-none">
-                {i > 0 && <i className="hidden h-[38px] w-px bg-line md:block" />}
-                <div>
-                  <b className="block font-display text-[26px] leading-[1.1] font-extrabold tracking-[-0.03em]">{p.value}</b>
-                  <span className="text-[13px] font-semibold text-muted">{p.label}</span>
-                </div>
-              </div>
-            ))}
+          <Reveal i={4} className="mt-[34px]">
+            <ClientCard />
           </Reveal>
 
           <Reveal i={5} className="mt-7 flex flex-wrap items-center gap-2 text-[13px]">

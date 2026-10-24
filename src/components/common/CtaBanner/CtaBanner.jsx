@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import Reveal from "../Reveal";
 import { CheckList } from "../Atoms";
 import { Container } from "../Section";
-import { LogoMark } from "../Logo/Logo";
+import { Ribbon } from "../Logo/Logo";
 
 /** Closing call-to-action shown at the bottom of most pages. */
 export default function CtaBanner({
@@ -34,7 +34,7 @@ export default function CtaBanner({
     <section className="pt-[30px]">
       <Container>
         <Reveal className="relative overflow-hidden rounded-[26px] bg-[radial-gradient(circle_at_20%_0%,#ff74a8_0%,transparent_45%),radial-gradient(circle_at_90%_100%,#7a1c58_0%,transparent_50%),linear-gradient(135deg,#e6337a,#a8104f)] px-[22px] py-[60px] text-center text-white sm:rounded-[36px] sm:px-10 sm:py-20">
-          <LogoMark size={420} className="pointer-events-none absolute -top-[60px] -right-20 rotate-18 opacity-12 [&_rect]:fill-transparent" />
+          <Ribbon color="#fff" className="pointer-events-none absolute -top-[60px] -right-20 w-[420px] rotate-18 opacity-12" />
           <h2 className="relative text-[clamp(36px,5.4vw,64px)] font-extrabold">
             {title}
             <span className="block font-accent text-pink-soft">{accent}</span>

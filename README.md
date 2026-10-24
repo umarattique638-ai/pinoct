@@ -1,5 +1,7 @@
 # Pinoct — Breast Cancer Awareness
 
+A breast cancer awareness initiative by **Pakistan International School**, led by **Ayesha Faraz**.
+
 React 19 + Vite + **Tailwind CSS v4** + React Router 7 + Framer Motion.
 
 **Purpose:** spread breast cancer awareness, educate visitors, promote early detection, and provide useful information and resources.
@@ -18,13 +20,13 @@ npm run lint
 ## Pages (React Router)
 | Route | Page |
 |---|---|
-| `/` | Home |
+| `/` | Home — overview, school initiative, links to each topic (no repeated content) |
 | `/about` | About us |
 | `/awareness` | Signs, risk factors, stages, myths |
 | `/self-check` | 5-step guide + reminder/tracker tool |
 | `/screening` | Screening by age, tests, mammogram steps |
 | `/faq` | Searchable, filterable FAQ |
-| `/contact` | WhatsApp + email contact cards |
+| `/contact` | Email contact (Gmail) |
 | `*` | 404 |
 
 ## Folder structure
@@ -55,8 +57,8 @@ Styling is 100% Tailwind utility classes — there are no component CSS files. D
 ## Awareness banners
 Edit or add campaign banners in `src/data/banners.js` and place them with `<AwarenessBanner banner={BANNERS.xyz} />`.
 
-## Contact details
-Edit `whatsapp` (digits only, e.g. `923001234567`), `whatsappDisplay` and `email` in `src/config/site.js`.
+## School, client & contact details
+Edit `SCHOOL`, `CLIENT` and `SITE.email` in `src/config/site.js`. The school logo is `public/school-logo.webp` (favicons: `public/icon-*.png`).
 
 ## Build output
 `npm run build` also runs `scripts/spa-routes.mjs`, which writes an HTML file for every route

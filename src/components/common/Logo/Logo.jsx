@@ -1,34 +1,48 @@
-import { useId } from "react";
 import { Link } from "react-router-dom";
 import { PATHS } from "@/routes/paths";
-import { SITE } from "@/config/site";
+import { SCHOOL, SITE } from "@/config/site";
 import { cn } from "@/utils/cn";
 
-/** The Pinoct awareness-ribbon mark (standalone, reusable for favicons, decoration, etc.). */
+const RIBBON_PATH =
+  "M32 6c-8 0-13 6-13 13 0 6 4 13 8 20L15 58l8 2 9-16 9 16 8-2-12-19c4-7 8-14 8-20 0-7-5-13-13-13zm0 8c3 0 5 2 5 5 0 3-2 8-5 13-3-5-5-10-5-13 0-3 2-5 5-5z";
+
+/** Pakistan International School logo (the brand mark used across the site). */
 export function LogoMark({ size = 40, className }) {
-  const id = useId();
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 48 48" aria-hidden="true">
-      <defs>
-        <linearGradient id={`${id}-bg`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ff5c9a" />
-          <stop offset="1" stopColor="#b8125a" />
-        </linearGradient>
-      </defs>
-      <rect width="48" height="48" rx="14" fill={`url(#${id}-bg)`} />
-      <path d="M24 9.5c-5.6 0-9 4-9 8.8 0 4.4 3 9.3 5.8 13.6L13 41.5l5.2 1.4 5.8-9.7 5.8 9.7 5.2-1.4-7.8-9.6c2.8-4.3 5.8-9.2 5.8-13.6 0-4.8-3.4-8.8-9-8.8Zm0 5.6c2 0 3.4 1.4 3.4 3.4 0 2.2-1.5 5.6-3.4 8.9-1.9-3.3-3.4-6.7-3.4-8.9 0-2 1.4-3.4 3.4-3.4Z" fill="#fff" />
-      <circle cx="37" cy="11" r="3" fill="#fff" opacity=".9" />
+    <img
+      src={SCHOOL.logo}
+      alt=""
+      aria-hidden="true"
+      width={Math.round(size * 0.74)}
+      height={size}
+      decoding="async"
+      className={cn("shrink-0 object-contain", className)}
+      style={{ height: size, width: "auto" }}
+    />
+  );
+}
+
+/** Plain single-colour awareness ribbon — for decoration on coloured backgrounds. */
+export function Ribbon({ className, color = "currentColor" }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <path d={RIBBON_PATH} fill={color} />
     </svg>
   );
 }
 
-/** Full logo: mark + "pinoct" wordmark. Links home by default. */
-export default function Logo({ to = PATHS.HOME, light = false, className }) {
+/** Full logo: school mark + "pinoct" wordmark + school name. Links home by default. */
+export default function Logo({ to = PATHS.HOME, className }) {
   return (
-    <Link to={to} className={cn("group inline-flex items-center gap-2.5", className)} aria-label={`${SITE.name} home`}>
-      <LogoMark className="drop-shadow-[0_10px_18px_rgba(230,51,122,0.4)] transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-8" />
-      <span className={cn("font-display text-[25px] leading-none font-extrabold tracking-[-0.05em]", light ? "text-white" : "text-ink")}>
-        pin<span className={light ? "text-pink-2" : "text-pink"}>oct</span>
+    <Link to={to} className={cn("group inline-flex items-center gap-2.5", className)} aria-label={`${SITE.name} — ${SCHOOL.name} home`}>
+      <LogoMark size={46} className="transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-6" />
+      <span className="flex flex-col">
+        <span className="font-display text-[25px] leading-none font-extrabold tracking-[-0.05em] text-ink">
+          pin<span className="text-pink">oct</span>
+        </span>
+        <span className="mt-1 text-[10.5px] leading-none font-bold tracking-[0.06em] text-muted uppercase">
+          {SCHOOL.name}
+        </span>
       </span>
     </Link>
   );

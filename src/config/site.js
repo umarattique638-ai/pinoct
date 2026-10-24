@@ -10,19 +10,22 @@ export const SITE = Object.freeze({
   url: "https://pinoct.com",
   tagline: "Early detection saves lives.",
   description:
-    "Pinoct spreads breast cancer awareness — educating visitors, promoting early detection and sharing trusted information and resources.",
-  email: "hello@pinoct.com", // TODO: create this mailbox once the domain is purchased
-  // TODO: your WhatsApp number — international format, digits only (e.g. 923001234567)
-  whatsapp: "923000000000",
-  whatsappDisplay: "+92 300 0000000",
-  emergency: "1122",
-  location: "Lahore, Pakistan",
-  social: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
-    x: "https://x.com/",
-    youtube: "https://youtube.com/",
-  },
+    "A breast cancer awareness initiative by Pakistan International School, led by Ayesha Faraz — spreading awareness, educating visitors and promoting early detection.",
+  email: "ayesha.aashikhokhar@gmail.com",
+});
+
+/** The school this awareness initiative belongs to. */
+export const SCHOOL = Object.freeze({
+  name: "Pakistan International School",
+  logo: "/school-logo.webp",
+});
+
+/** Project lead / client. */
+export const CLIENT = Object.freeze({
+  name: "Ayesha Faraz",
+  initials: "AF",
+  role: "Project Lead",
+  email: SITE.email,
 });
 
 export const NAV_LINKS = [

@@ -7,7 +7,7 @@ import { SITE } from "@/config/site";
  */
 export default function Seo({ title, description = SITE.description }) {
   const { pathname } = useLocation();
-  const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — Breast Cancer Awareness`;
+  const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — Breast Cancer Awareness | Pakistan International School`;
   const url = `${SITE.url}${pathname}`;
   return (
     <>

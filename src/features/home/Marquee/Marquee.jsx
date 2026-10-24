@@ -1,4 +1,4 @@
-import { LogoMark } from "@/components/common";
+import { Ribbon } from "@/components/common";
 import { marqueeWords } from "@/data/home";
 
 export default function Marquee() {
@@ -9,7 +9,7 @@ export default function Marquee() {
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-12 font-display text-[22px] font-bold whitespace-nowrap">
             {w}
-            <LogoMark size={26} className="opacity-95" />
+            <Ribbon color="#fff" className="w-[22px] opacity-80" />
           </span>
         ))}
       </div>

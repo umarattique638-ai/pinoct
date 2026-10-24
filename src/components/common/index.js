@@ -7,7 +7,7 @@ export { Card, CardMore, CardText, CardTitle, IconBox } from "./Card";
 export { default as CountUp } from "./CountUp";
 export { default as CtaBanner } from "./CtaBanner/CtaBanner";
 export { Chip, FormField, inputClass } from "./Form/Form";
-export { default as Logo, LogoMark } from "./Logo/Logo";
+export { default as Logo, LogoMark, Ribbon } from "./Logo/Logo";
 export { default as PageHeader } from "./PageHeader/PageHeader";
 export { default as Reveal } from "./Reveal";
 export { default as Section, Container } from "./Section";
