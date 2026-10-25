@@ -58,7 +58,7 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="flex items-center gap-2.5">
-            <Button to={PATHS.SELF_CHECK} size="sm" icon={ArrowRight} className="hidden md:inline-flex">Start self-check</Button>
+            {/* <Button to={PATHS.SELF_CHECK} size="sm" icon={ArrowRight} className="hidden md:inline-flex">Start self-check</Button> */}
             <button
               className="grid size-11 place-items-center rounded-xl border border-line bg-white 2xl:hidden"
               aria-label={open ? "Close menu" : "Open menu"}

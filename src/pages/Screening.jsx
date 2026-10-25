@@ -17,7 +17,7 @@ export default function Screening() {
         lead="Screening is the strongest tool for early detection — a mammogram can find breast cancer years before symptoms appear. Learn when to start, which tests exist and what happens on the day."
       >
         <Button href="#by-age" icon={ArrowRight}>Screening by age</Button>
-        <Button to={`${PATHS.SELF_CHECK}#tracker`} variant="ghost">Get my personal tip</Button>
+        {/* <Button to={`${PATHS.SELF_CHECK}#tracker`} variant="ghost">Get my personal tip</Button> */}
       </PageHeader>
 
       <Section id="by-age">

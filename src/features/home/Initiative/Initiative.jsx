@@ -27,7 +27,7 @@ export default function Initiative() {
           </Reveal>
           <Reveal i={4} className="mt-8 flex flex-wrap gap-3">
             <Button to={PATHS.ABOUT} icon={ArrowRight}>About the initiative</Button>
-            <Button to={PATHS.CONTACT} variant="ghost" iconLeft={Mail}>Contact {CLIENT.name.split(" ")[0]}</Button>
+            {/* <Button to={PATHS.CONTACT} variant="ghost" iconLeft={Mail}>Contact {CLIENT.name.split(" ")[0]}</Button> */}
           </Reveal>
         </div>
 
