@@ -17,9 +17,10 @@ export default function Home() {
       <Seo />
       <Hero />
 
-      <AwarenessBanner banner={BANNERS.awarenessMonth} className="pt-6 pb-0 md:pt-6 md:pb-0" />
-
+      
       <Initiative />
+
+<AwarenessBanner banner={BANNERS.awarenessMonth} className="pt-6 pb-0 md:pt-6 md:pb-0" />
 
       <Section tone="tint">
         <SectionHeader

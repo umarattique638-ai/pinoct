@@ -247,7 +247,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal i={4} className="mt-[34px]">
-            <ClientCard />
+            {/* <ClientCard /> */}
           </Reveal>
 
           <Reveal i={5} className="mt-7 flex flex-wrap items-center gap-2 text-[13px]">

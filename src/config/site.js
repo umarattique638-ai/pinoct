@@ -32,7 +32,7 @@ export const NAV_LINKS = [
   { label: "Home", to: PATHS.HOME },
   { label: "About", to: PATHS.ABOUT },
   { label: "Awareness", to: PATHS.AWARENESS },
-  { label: "Self-check", to: PATHS.SELF_CHECK },
+  // { label: "Self-check", to: PATHS.SELF_CHECK },
   { label: "Screening", to: PATHS.SCREENING },
   { label: "FAQ", to: PATHS.FAQ },
   { label: "Contact", to: PATHS.CONTACT },
