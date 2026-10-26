@@ -12,7 +12,7 @@ export const selfExamSteps = [
     tip: "Also check the underside of each breast by lifting it gently.",
   },
   {
-    title: "Check the nipples",
+    title: "Check the area",
     when: "Gently, no squeezing",
     text: "Look for any nipple that has turned inward, changed position, or has a rash, scaling or discharge that is not breast milk (watery, milky, yellow or bloody).",
     tip: "Any new discharge, especially from one side only, is worth reporting.",

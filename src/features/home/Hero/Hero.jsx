@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Bell, CalendarHeart, Check, CheckCircle2, Mail, PlayCircle, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight, CalendarHeart, Check, CheckCircle2, Eye, HandHeart, Mail, Megaphone, PlayCircle, Search, Share2, ShieldCheck, Stethoscope,
+} from "lucide-react";
 import { Button, Container, LogoMark, Pill, Reveal } from "@/components/common";
-import { heroChecklist, heroRotatingWords, heroSources } from "@/data/home";
+import { heroAwareness, heroRotatingWords, heroSources } from "@/data/home";
 import { CLIENT, SCHOOL } from "@/config/site";
 import { PATHS } from "@/routes/paths";
 import { cn } from "@/utils/cn";
@@ -63,40 +65,43 @@ function FloatingCard({ className, delay, icon: Icon, tone, title, meta }) {
   );
 }
 
-function ProgressRing({ value, total }) {
-  const r = 46;
-  const C = 2 * Math.PI * r;
+const AWARENESS_ICONS = { Eye, Search, HandHeart, Stethoscope, Share2 };
+const RIBBON_PATH =
+  "M32 6c-8 0-13 6-13 13 0 6 4 13 8 20L15 58l8 2 9-16 9 16 8-2-12-19c4-7 8-14 8-20 0-7-5-13-13-13zm0 8c3 0 5 2 5 5 0 3-2 8-5 13-3-5-5-10-5-13 0-3 2-5 5-5z";
+
+/** Animated pink ribbon inside a pulsing ring. */
+function RibbonBadge() {
   return (
-    <div className="relative size-[108px] shrink-0">
-      <svg width="108" height="108" viewBox="0 0 108 108" className="-rotate-90" aria-hidden="true">
-        <defs>
-          <linearGradient id="hero-ring" x1="0" x2="1">
-            <stop offset="0" stopColor="#e6337a" />
-            <stop offset="1" stopColor="#ff74a8" />
-          </linearGradient>
-        </defs>
-        <circle cx="54" cy="54" r={r} fill="none" stroke="#fde3ed" strokeWidth="10" />
-        <motion.circle
-          cx="54" cy="54" r={r} fill="none" stroke="url(#hero-ring)" strokeWidth="10" strokeLinecap="round"
-          strokeDasharray={C} initial={{ strokeDashoffset: C }} animate={{ strokeDashoffset: C * (1 - value / total) }}
-          transition={{ duration: 1.6, delay: 0.6, ease: "easeOut" }}
-        />
-      </svg>
-      <span className="absolute inset-0 grid place-content-center text-center">
-        <b className="font-display text-[26px] leading-none font-extrabold">{value}/{total}</b>
-        <small className="block text-[11px] font-semibold text-muted">steps</small>
-      </span>
+    <div className="relative grid size-[108px] shrink-0 place-items-center" aria-hidden="true">
+      <motion.span
+        className="absolute inset-0 rounded-full border-[3px] border-pink/30"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.9, 0, 0.9] }}
+        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.span
+        className="absolute inset-2 rounded-full border-2 border-dashed border-pink/40"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+      />
+      <span className="absolute inset-4 rounded-full bg-linear-135 from-pink to-[#b8125a] shadow-pink-sm" />
+      <motion.svg
+        viewBox="0 0 64 64"
+        className="relative w-11"
+        animate={{ y: [0, -3, 0], rotate: [0, -4, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <path d={RIBBON_PATH} fill="#fff" />
+      </motion.svg>
     </div>
   );
 }
 
-/** Interactive app-style preview card that tilts towards the cursor. */
+/** Interactive awareness card that tilts towards the cursor. */
 function HeroMockup() {
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const rotateY = useSpring(useTransform(mx, [-0.5, 0.5], [-8, 8]), { stiffness: 150, damping: 18 });
   const rotateX = useSpring(useTransform(my, [-0.5, 0.5], [8, -8]), { stiffness: 150, damping: 18 });
-  const done = heroChecklist.filter((c) => c.done).length;
 
   const onMove = (e) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -128,46 +133,59 @@ function HeroMockup() {
           <div className="flex items-center gap-2.5">
             <LogoMark size={34} />
             <div>
-              <b className="block font-display text-[14.5px]">Your October check-in</b>
-              <span className="text-[12.5px] text-muted">Monthly self-check · 5 steps</span>
+              <b className="block font-display text-[14.5px]">Breast Cancer Awareness</b>
+              <span className="text-[12.5px] text-muted">Know · Check · Share</span>
             </div>
           </div>
-          <Pill tone="ok" className="hidden sm:inline-flex">
-            <span className="size-[7px] animate-live rounded-full bg-ok" />
-            On track
+          <Pill className="hidden sm:inline-flex">
+            <span className="size-[7px] animate-live rounded-full bg-pink" />
+            Spread awareness
           </Pill>
         </div>
 
         <div className="flex flex-col items-center gap-5 rounded-[20px] border border-line bg-linear-135 from-[#fff1f6] to-white p-[18px] text-center sm:flex-row sm:text-left">
-          <ProgressRing value={done} total={heroChecklist.length} />
+          <RibbonBadge />
           <div>
-            <h4 className="text-xl">Almost there!</h4>
-            <p className="mt-1.5 text-sm text-muted">Two more steps to finish this month's self-check. It takes about five minutes.</p>
+            <h4 className="text-xl">Early detection saves lives.</h4>
+            <p className="mt-1.5 text-sm text-muted">Found early, breast cancer is highly treatable. Awareness helps everyone act in time.</p>
           </div>
         </div>
 
         <ul className="mt-4 grid gap-2.5">
-          {heroChecklist.map((c, i) => (
-            <motion.li
-              key={c.label}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7 + i * 0.1 }}
-              className="flex items-center gap-3 rounded-[14px] border border-line bg-white px-3.5 py-3 text-sm font-semibold"
-            >
-              <span className={cn("grid size-6 shrink-0 place-items-center rounded-lg text-xs [&>svg]:size-3.5", c.done ? "bg-pink text-white" : "bg-bg-2 text-muted")}>
-                {c.done ? <Check aria-hidden="true" /> : i + 1}
-              </span>
-              {c.label}
-              <em className={cn("ml-auto text-xs font-semibold not-italic", c.done ? "text-muted" : "text-pink")}>{c.status}</em>
-            </motion.li>
-          ))}
+          {heroAwareness.map((item, i) => {
+            const Icon = AWARENESS_ICONS[item.icon];
+            return (
+              <motion.li
+                key={item.label}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 + i * 0.12 }}
+                className="flex items-center gap-3 rounded-[14px] border border-line bg-white px-3.5 py-3 text-sm font-semibold"
+              >
+                <span className="grid size-7 shrink-0 place-items-center rounded-lg bg-bg-2 text-pink [&>svg]:size-4">
+                  <Icon aria-hidden="true" />
+                </span>
+                {item.label}
+                <span className="ml-auto flex items-center gap-2">
+                  <em className="text-xs font-semibold text-muted not-italic">{item.tag}</em>
+                  <motion.span
+                    className="grid size-5 place-items-center rounded-full bg-pink text-white"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 1.3 + i * 0.25, type: "spring", stiffness: 400, damping: 15 }}
+                  >
+                    <Check className="size-3" aria-hidden="true" />
+                  </motion.span>
+                </span>
+              </motion.li>
+            );
+          })}
         </ul>
       </motion.div>
 
-      <FloatingCard className="-top-[62px] -left-1.5 xl:-left-10" delay={1} icon={Bell} tone="pink" title="Reminder: self-check" meta="Every month · 7 days after period" />
-      <FloatingCard className="-right-1.5 -bottom-11 xl:-right-7" delay={1.3} icon={ShieldCheck} tone="green" title="Found early: ~99%" meta="5-year survival · localized" />
-      <FloatingCard className="-bottom-11 -left-7" delay={1.6} icon={CalendarHeart} tone="indigo" title="Mammogram at 40+" meta="Every 1–2 years · ask your doctor" />
+      <FloatingCard className="-top-[62px] -left-1.5 xl:-left-10" delay={1} icon={Megaphone} tone="pink" title="Spread the word" meta="Share with family & friends" />
+      <FloatingCard className="-right-1.5 -bottom-[72px] xl:-right-7" delay={1.3} icon={ShieldCheck} tone="green" title="Found early: ~99%" meta="5-year survival · localized" />
+      <FloatingCard className="-bottom-[72px] -left-7" delay={1.6} icon={CalendarHeart} tone="indigo" title="Mammogram at 40+" meta="Every 1–2 years · ask your doctor" />
     </motion.div>
   );
 }
@@ -241,23 +259,23 @@ export default function Hero() {
             when to get screened.
           </Reveal>
 
-          <Reveal i={3} className="mt-[34px] flex flex-wrap gap-3">
+          {/* <Reveal i={3} className="mt-[34px] flex flex-wrap gap-3">
             <Button to={PATHS.SELF_CHECK} icon={ArrowRight}>Start the 5-min self-check</Button>
             <Button to={`${PATHS.AWARENESS}#signs`} variant="ghost" iconLeft={PlayCircle}>8 warning signs</Button>
-          </Reveal>
+          </Reveal> */}
 
           <Reveal i={4} className="mt-[34px]">
-            {/* <ClientCard /> */}
+            <ClientCard />
           </Reveal>
 
-          <Reveal i={5} className="mt-7 flex flex-wrap items-center gap-2 text-[13px]">
+          {/* <Reveal i={5} className="mt-7 flex flex-wrap items-center gap-2 text-[13px]">
             <span className="mr-1 inline-flex items-center gap-1.5 font-semibold text-muted">
               <CheckCircle2 className="w-4 text-ok" aria-hidden="true" /> Facts based on
             </span>
             {heroSources.map((s) => (
               <em key={s} className="rounded-full border border-line bg-white/70 px-[11px] py-[5px] font-bold text-ink-2 not-italic">{s}</em>
             ))}
-          </Reveal>
+          </Reveal> */}
         </div>
 
         <HeroMockup />

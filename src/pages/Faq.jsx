@@ -20,13 +20,13 @@ export default function Faq() {
   return (
     <>
       <Seo title="FAQ" description="Trusted, easy-to-understand answers about breast cancer, self-checks, screening, risk and treatment." />
-      <PageHeader
+      {/* <PageHeader
         crumb="FAQ"
         eyebrow="Frequently asked questions"
         title="Everything you"
         accent="need to know."
         lead="Clear, trusted answers to the questions people ask most about breast cancer, self-checks and screening. Can't find yours? Send us an email."
-      />
+      /> */}
 
       <Section>
         <div className="mx-auto max-w-[880px]">
@@ -57,11 +57,11 @@ export default function Faq() {
             </div>
           )}
 
-          <p className="mt-8 flex flex-wrap items-center justify-center gap-2 text-center text-[15px] text-muted">
+          {/* <p className="mt-8 flex flex-wrap items-center justify-center gap-2 text-center text-[15px] text-muted">
             <MessageCircle className="w-[18px] text-pink" aria-hidden="true" />
             Still unsure? Our team is happy to help —
             <Button to={PATHS.CONTACT} variant="ghost" size="sm">Contact Pinoct</Button>
-          </p>
+          </p> */}
         </div>
       </Section>
 

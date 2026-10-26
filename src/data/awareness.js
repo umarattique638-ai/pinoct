@@ -3,10 +3,11 @@ export const signs = [
   { icon: "Waves", title: "Thickening or swelling", text: "Thickening or swelling of part of the breast." },
   { icon: "Grip", title: "Skin dimpling", text: "Dimpling or puckering of the skin, sometimes like orange peel." },
   { icon: "Flame", title: "Redness or flaking", text: "Redness, scaling or flaky skin on the nipple or breast." },
-  { icon: "ArrowDownToDot", title: "Inverted nipple", text: "Pulling in of the nipple, or pain in the nipple area." },
-  { icon: "Droplet", title: "Nipple discharge", text: "Discharge other than breast milk, including blood." },
-  { icon: "Scaling", title: "Size or shape change", text: "Any change in the size or the shape of the breast." },
-  { icon: "Zap", title: "Persistent pain", text: "Pain in any area of the breast that does not go away." },
+  // { icon: "ArrowDownToDot", title: "Inverted nipple", text: "Pulling in of the nipple, or pain in the nipple area." },
+  // { icon: "Droplet", title: "Nipple discharge", text: "Discharge other than breast milk, including blood." },
+  // { icon: "Scaling", title: "Size or shape change", text: "Any change in the size or the shape of the breast." },
+  // { icon: "Zap", title: "Persistent pain", text: "Pain in any area of the breast that does not go away." },
+
 ];
 
 export const risks = {

@@ -32,7 +32,7 @@ export default function Home() {
         <FeatureCards items={pillars} />
       </Section>
 
-      <Section>
+      {/* <Section>
         <SectionHeader eyebrow="Explore Pinoct" title="Everything in one place." subtitle="Pick where to start." />
         <FeatureCards items={explore} columns={4} />
       </Section>
@@ -41,7 +41,11 @@ export default function Home() {
 
       <Marquee />
 
-      <CtaBanner />
+      <CtaBanner /> 
+      
+      */}
+            <CtaBanner /> 
+
     </>
   );
 }

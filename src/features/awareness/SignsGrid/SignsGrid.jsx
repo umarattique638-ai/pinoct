@@ -24,20 +24,20 @@ export default function SignsGrid({ showCallout = true }) {
         ))}
       </div>
 
-      {showCallout && (
-        <Reveal>
-          <Callout>
-            <div className="flex items-center gap-4">
-              <IconBox icon={Stethoscope} className="m-0 bg-white" hoverEffect={false} />
-              <div>
-                <b className="font-display text-xl">Noticed a change?</b>
-                <p className="mt-1 text-muted">Book an appointment within 1–2 weeks. Early checks mean more options and peace of mind.</p>
-              </div>
-            </div>
-            <Button to={PATHS.FAQ} variant="dark" icon={ArrowRight}>What happens next</Button>
-          </Callout>
-        </Reveal>
-      )}
+          {/* {showCallout && (
+            <Reveal>
+              <Callout>
+                <div className="flex items-center gap-4">
+                  <IconBox icon={Stethoscope} className="m-0 bg-white" hoverEffect={false} />
+                  <div>
+                    <b className="font-display text-xl">Noticed a change?</b>
+                    <p className="mt-1 text-muted">Book an appointment within 1–2 weeks. Early checks mean more options and peace of mind.</p>
+                  </div>
+                </div>
+                <Button to={PATHS.FAQ} variant="dark" icon={ArrowRight}>What happens next</Button>
+              </Callout>
+            </Reveal>
+          )} */}
     </>
   );
 }

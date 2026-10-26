@@ -61,7 +61,7 @@ export const FOOTER_GROUPS = [
     title: "Pinoct",
     links: [
       { label: "About us", to: PATHS.ABOUT },
-      { label: "Contact", to: PATHS.CONTACT },
+      // { label: "Contact", to: PATHS.CONTACT },
     ],
   },
 ];

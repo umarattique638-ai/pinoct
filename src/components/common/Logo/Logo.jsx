@@ -31,10 +31,13 @@ export function Ribbon({ className, color = "currentColor" }) {
   );
 }
 
-/** Full logo: school mark + "pinoct" wordmark + school name. Links home by default. */
+/**
+ * Full logo: school mark + "pinoct" wordmark + school name.
+ * Links home by default; pass `to={null}` to render it as plain (non-link) text.
+ */
 export default function Logo({ to = PATHS.HOME, className }) {
-  return (
-    <Link to={to} className={cn("group inline-flex items-center gap-2.5", className)} aria-label={`${SITE.name} — ${SCHOOL.name} home`}>
+  const content = (
+    <>
       <LogoMark size={46} className="transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-6" />
       <span className="flex flex-col">
         <span className="font-display text-[25px] leading-none font-extrabold tracking-[-0.05em] text-ink">
@@ -44,6 +47,14 @@ export default function Logo({ to = PATHS.HOME, className }) {
           {SCHOOL.name}
         </span>
       </span>
+    </>
+  );
+  const classes = cn("group inline-flex items-center gap-2.5", className);
+
+  if (to === null) return <span className={classes}>{content}</span>;
+  return (
+    <Link to={to} className={classes} aria-label={`${SITE.name} — ${SCHOOL.name} home`}>
+      {content}
     </Link>
   );
 }

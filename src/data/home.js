@@ -24,12 +24,13 @@ export const pillars = [
   },
 ];
 
-export const heroChecklist = [
-  { label: "Look in the mirror", status: "Done", done: true },
-  { label: "Arms raised check", status: "Done", done: true },
-  { label: "Nipple check", status: "Done", done: true },
-  { label: "Feel lying down", status: "Today", done: false },
-  { label: "Feel standing", status: "Today", done: false },
+/** Key awareness messages shown on the hero card. */
+export const heroAwareness = [
+  { icon: "Eye", label: "Know your normal", tag: "Know" },
+  { icon: "Search", label: "Learn the warning signs", tag: "Learn" },
+  { icon: "HandHeart", label: "Check yourself regularly", tag: "Check" },
+  { icon: "Stethoscope", label: "See a doctor about any change", tag: "Act" },
+  { icon: "Share2", label: "Share awareness with others", tag: "Share" },
 ];
 
 export const heroRotatingWords = ["early.", "in time.", "first."];
@@ -49,4 +50,12 @@ export const initiativePoints = [
   "Simple, trusted information for students, parents, teachers and the wider community",
   "A practical monthly self-check guide and a free reminder tool",
   "Clear screening guidance by age and links to trusted medical organisations",
+];
+
+/** "Ways you can help" card in the home-page initiative section. */
+export const helpSteps = [
+  { icon: "BookOpenText", title: "Learn the signs", text: "Know what changes to look for and why early detection matters." },
+  { icon: "HandHeart", title: "Check yourself", text: "Get to know your normal so any change stands out quickly." },
+  { icon: "Stethoscope", title: "Talk to a doctor", text: "Don't wait — get any new change checked without delay." },
+  { icon: "Share2", title: "Share the message", text: "Tell your family and friends. Awareness grows when it's shared." },
 ];

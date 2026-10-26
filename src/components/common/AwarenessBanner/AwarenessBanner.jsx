@@ -84,8 +84,10 @@ export default function AwarenessBanner({ banner, className }) {
               )}
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button to={banner.primary.to} variant={t.primary} icon={ArrowRight}>{banner.primary.label}</Button>
+                {/* <Button to={banner.primary.to} variant={t.primary} icon={ArrowRight}>{banner.primary.label}</Button>
                 {banner.secondary && <Button to={banner.secondary.to} variant={t.secondary}>{banner.secondary.label}</Button>}
+              */}
+             
               </div>
             </div>
 

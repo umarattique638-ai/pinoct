@@ -40,11 +40,12 @@ export default function CtaBanner({
             <span className="block font-accent text-pink-soft">{accent}</span>
           </h2>
           <p className="relative mx-auto mt-5 max-w-[580px] text-lg text-pink-soft">{text}</p>
-          <div className="relative mt-8 flex flex-wrap justify-center gap-3">
+          {/* <div className="relative mt-8 flex flex-wrap justify-center gap-3">
             <Button to={`${PATHS.SELF_CHECK}#tracker`} variant="light" icon={ArrowRight}>Set my reminder</Button>
             <Button variant="outline-light" iconLeft={Share2} onClick={share}>{copied ? "Link copied!" : "Share Pinoct"}</Button>
           </div>
           <CheckList light className="relative justify-center" items={["Free & private", "Based on WHO & ACS guidance", "Works on any device"]} />
+        */}
         </Reveal>
       </Container>
     </section>

@@ -10,7 +10,7 @@ export default function About() {
   return (
     <>
       <Seo title="About us" description="Pinoct spreads breast cancer awareness, educates visitors, promotes early detection and shares useful information and resources." />
-      <PageHeader
+      {/* <PageHeader
         crumb="About"
         eyebrow="About Pinoct"
         title="We turn awareness into"
@@ -19,7 +19,7 @@ export default function About() {
       >
         <Button to={PATHS.AWARENESS} icon={ArrowRight}>Start learning</Button>
         <Button to={PATHS.CONTACT} variant="ghost" iconLeft={Mail}>Get in touch</Button>
-      </PageHeader>
+      </PageHeader> */}
 
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -40,17 +40,17 @@ export default function About() {
         </div>
       </Section>
 
-      <Section tone="tint" id="purpose">
+      {/* <Section tone="tint" id="purpose">
         <SectionHeader
           eyebrow="Our purpose"
           title="Four things we're here to do."
           subtitle="Everything on Pinoct serves one of them."
         />
         <FeatureCards items={purpose} columns={4} />
-      </Section>
+      </Section> */}
 
 
-      <Section tone="tint">
+      {/* <Section tone="tint">
         <SectionHeader
           eyebrow="Understanding the disease"
           title="What is breast cancer?"
@@ -81,7 +81,7 @@ export default function About() {
         <Resources />
       </Section>
 
-      <CtaBanner />
+      <CtaBanner /> */}
     </>
   );
 }

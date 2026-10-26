@@ -10,10 +10,13 @@ import { cn } from "@/utils/cn";
 
 function AnnouncementBar() {
   return (
-    <div className="bg-plum px-4 py-2.5 text-center text-sm font-medium text-[#ffdbe9]">
-      <b className="text-white">October is Breast Cancer Awareness Month.</b> Spread the word — early detection saves lives.
-      <Link to={`${PATHS.SELF_CHECK}#tracker`} className="ml-2 font-bold text-pink-2 hover:underline">Set your reminder →</Link>
-    </div>
+    // <div className="bg-plum px-4 py-2.5 text-center text-sm font-medium text-[#ffdbe9]">
+    //   <b className="text-white">October is Breast Cancer Awareness Month.</b> Spread the word — early detection saves lives.
+      
+    //   <Link to={`${PATHS.SELF_CHECK}#tracker`} className="ml-2 font-bold text-pink-2 hover:underline">Set your reminder →</Link>
+   
+    // </div>
+    <></>
   );
 }
 

@@ -10,7 +10,7 @@ export default function Awareness() {
   return (
     <>
       <Seo title="Awareness hub" description="Learn breast cancer warning signs, risk factors, stages and the truth behind common myths — awareness that leads to early detection." />
-      <PageHeader
+      {/* <PageHeader
         crumb="Awareness"
         eyebrow="Awareness hub"
         title="Know the facts."
@@ -19,12 +19,12 @@ export default function Awareness() {
       >
         <Button href="#signs" icon={ArrowRight}>Warning signs</Button>
         <Button href="#myths" variant="ghost">Myths vs facts</Button>
-      </PageHeader>
+      </PageHeader> */}
 
       <Section id="signs">
         <SectionHeader
           eyebrow="Warning signs"
-          title="8 signs to never ignore."
+          title="4 signs to never ignore."
           subtitle="Changes worth a doctor's visit."
           lead="Some people have no symptoms at all, which is why screening matters. But if you notice any of these, don't wait — most changes are not cancer, yet every change deserves a check."
         />
@@ -61,9 +61,9 @@ export default function Awareness() {
         <MythsTable />
       </Section>
 
-      <AwarenessBanner banner={BANNERS.knowYourNormal} className="pt-0 md:pt-0" />
+      {/* <AwarenessBanner banner={BANNERS.knowYourNormal} className="pt-0 md:pt-0" />
 
-      <CtaBanner />
+      <CtaBanner /> */}
     </>
   );
 }
